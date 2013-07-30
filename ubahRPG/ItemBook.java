@@ -25,4 +25,9 @@ public class ItemBook extends ItemBasic
 			return itemstack;
 	}
 	
+	public void registerIcons(IconRegister par1IconRegister)
+    {
+    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + "book");
+    }
+	
 }

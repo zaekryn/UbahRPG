@@ -25,8 +25,7 @@ public class GUIForge extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRenderer.drawString("Weapons Forge", 28, 6, 4210752);
-        this.fontRenderer.drawString(I18n.func_135053_a("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
+        
     }
 
     /**

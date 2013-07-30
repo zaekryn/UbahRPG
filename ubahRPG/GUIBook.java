@@ -1,5 +1,6 @@
 package ubahRPG;
 
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -27,23 +28,25 @@ public class GUIBook extends GuiScreen
 	protected int xSize = 512;
 	protected int ySize = 336;
 	
-	protected void drawGuiContainerForegroundLayer(int par1, int par2)
-    {
-        
-    }
+	 
 	
-	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
-    {
+	@Override
+	public void drawScreen(int x, int y, float f) {
+		drawDefaultBackground();
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.func_110434_K().func_110577_a(textureBook);
-        int posX = (this.width - xSize) / 2;
-        int posY = (this.height - ySize) / 2;
-        drawTexturedModalRect(posX, posY, 0, 0, xSize, ySize);
-    }
+        int xStart = (width - xSize) / 2;
+		int yStart = (height - ySize) / 2;
+        drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
+	}
+	
+	
 	
 	public boolean doesGuiPauseGame()
     {
         return false;
     }
+	
+	
 	
 }

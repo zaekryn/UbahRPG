@@ -112,7 +112,7 @@ public class UbahRPG
        public static Item ingotUltimite;
        public static Item candy;
        //
-       public static Item book;
+       public static Item book0;
        //Blocks
        public static Block weaponsForge;
        //
@@ -209,9 +209,9 @@ public class UbahRPG
     	   crystalNether = new ItemDrop(6436).setUnlocalizedName("crystalNether");
     	   ingotUltimite = new ItemBasic(6440).setUnlocalizedName("ingotUltimite");
     	   //
-    	   candy = new ItemFood(6443, 1, false).setUnlocalizedName("candy");
+    	   candy = new ItemEdible(6443, 1, false).setUnlocalizedName("candy");
     	   //
-    	   book = new ItemBook(6448).setUnlocalizedName("book");
+    	   book0 = new ItemBook(6448).setUnlocalizedName("book0");
     	   
     	   //
     	   
@@ -263,7 +263,7 @@ public class UbahRPG
     	   LanguageRegistry.addName(krakenScale, "Kraken Scale");
     	   LanguageRegistry.addName(crystalNether, "Nether Crystal");
     	   LanguageRegistry.addName(ingotUltimite, "Ultimite Ingot");
-    	   LanguageRegistry.addName(book, "\u00A7lAn Old Book");
+    	   LanguageRegistry.addName(book0, "\u00A7lAn Old Book");
     	   
     	   //
     	   
