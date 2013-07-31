@@ -25,8 +25,8 @@ public class GUIBook extends GuiScreen
 	
 	
 	
-	protected int xSize = 512;
-	protected int ySize = 336;
+	protected int xSize = 512 / 2;
+	protected int ySize = 336 / 2;
 	
 	 
 	
@@ -38,6 +38,7 @@ public class GUIBook extends GuiScreen
         int xStart = (width - xSize) / 2;
 		int yStart = (height - ySize) / 2;
         drawTexturedModalRect(xStart, yStart, 0, 0, xSize, ySize);
+        
 	}
 	
 	

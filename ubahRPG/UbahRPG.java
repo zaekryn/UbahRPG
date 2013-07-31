@@ -369,6 +369,32 @@ public class UbahRPG
                'O', orcSkin
         });
     	   //
+    	   GameRegistry.addRecipe(new ItemStack(camoHelmet), new Object[]{
+               "OOO",
+               "O O",
+               'O', Block.leaves
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(camoChestplate), new Object[]{
+               "O O",
+               "OOO",
+               "OOO",
+               'O', Block.leaves
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(camoLeggings), new Object[]{
+               "OOO",
+               "O O",
+               "O O",
+               'O', Block.leaves
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(camoBoots), new Object[]{
+               "O O",
+               "O O",
+               'O', Block.leaves
+        });
+    	   //
     	   GameRegistry.addRecipe(new ItemStack(pickUltimite), new Object[]{
                "UUU",
                " S ",
