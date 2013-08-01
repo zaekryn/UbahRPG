@@ -254,6 +254,10 @@ public class UbahRPG
     	   
     	   //
     	   
+    	   LanguageRegistry.addName(bowGhost, "Ghost Bow");
+    	   
+    	   //
+    	   
     	   LanguageRegistry.addName(basiliskFang, "Basilisk Fang");
     	   LanguageRegistry.addName(shardPeppermint, "Peppermint Shard");
     	   LanguageRegistry.addName(crystalCandycane, "Candy Cane Crystal"); 
