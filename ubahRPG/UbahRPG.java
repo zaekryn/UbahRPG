@@ -259,13 +259,13 @@ public class UbahRPG
     	   //
     	   
     	   LanguageRegistry.addName(basiliskFang, "Basilisk Fang");
-    	   LanguageRegistry.addName(shardPeppermint, "Peppermint Shard");
+    	   LanguageRegistry.addName(shardPeppermint, "Peppermint Fragment");
     	   LanguageRegistry.addName(crystalCandycane, "Candy Cane Crystal"); 
     	   LanguageRegistry.addName(orcSkin, "Orc Skin");
-    	   LanguageRegistry.addName(shardDarkness, "Darkness Shard");
+    	   LanguageRegistry.addName(shardDarkness, "Darkness Fragment");
     	   LanguageRegistry.addName(impSoul, "Imp Soul");
     	   LanguageRegistry.addName(yetiFur, "Yeti Fur");
-    	   LanguageRegistry.addName(shardGhost, "Ghost Shard");
+    	   LanguageRegistry.addName(shardGhost, "Ghost Fragment");
     	   LanguageRegistry.addName(centaurRing, "Centaur Ring");
     	   LanguageRegistry.addName(gryphonFeather, "Gryphon Feather");
     	   LanguageRegistry.addName(crystalSatyr, "Satyr Crystal");
