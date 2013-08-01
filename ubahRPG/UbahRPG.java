@@ -60,6 +60,8 @@ public class UbahRPG
        static EnumToolMaterial candycane = EnumHelper.addToolMaterial("candycane", 1, 200, 2F, 0, 30);
        static EnumToolMaterial basilisk = EnumHelper.addToolMaterial("basilisk", 1, 250, 2F, 1, 30);
        static EnumToolMaterial vanquish = EnumHelper.addToolMaterial("vanquish", 1, 500, 2F, 4, 30);
+       static EnumToolMaterial kraken = EnumHelper.addToolMaterial("kraken", 1, 500, 2F, 3, 30);
+       //
        static EnumToolMaterial ultimite = EnumHelper.addToolMaterial("ultimite", 3, 300, 7F, 0, 30);
        static EnumToolMaterial ultimiteWeapon = EnumHelper.addToolMaterial("ultimiteWeapon", 1, 300, 2F, 7, 30);
        //
@@ -95,6 +97,7 @@ public class UbahRPG
        public static Item swordBasiliskFear;
        public static Item swordVampirialVanquish;
        public static Item swordUltimite;
+       public static Item swordKraken;
        //Bows
        public static Item bowGhost;
        //Items
@@ -192,6 +195,7 @@ public class UbahRPG
     	   swordBasiliskFear = new ItemSwordBasilisk(6438, basilisk).setUnlocalizedName("swordBasiliskFear");
     	   swordVampirialVanquish = new ItemSwordVanquish(6439, vanquish).setUnlocalizedName("swordVampirialVanquish");
     	   swordUltimite = new ItemSwordBasic(6442, ultimiteWeapon).setUnlocalizedName("swordUltimite");
+    	   swordKraken = new ItemSwordKraken(6450, kraken).setUnlocalizedName("swordKraken");
     	   
     	   //
     	   
@@ -215,8 +219,6 @@ public class UbahRPG
     	   ingotUltimite = new ItemBasic(6440).setUnlocalizedName("ingotUltimite");
     	   //
     	   candy = new ItemEdible(6443, 1, false).setUnlocalizedName("candy");
-    	   //
-    	   book0 = new ItemBook(6448).setUnlocalizedName("book0");
     	   
     	   //
     	   
@@ -251,6 +253,7 @@ public class UbahRPG
     	   LanguageRegistry.addName(swordBasiliskFear, "\u00A72\u00A7lThe Basilisk's Fear");
     	   LanguageRegistry.addName(swordVampirialVanquish, "\u00A75\u00A7lThe Vampirial Vanquish");
     	   LanguageRegistry.addName(swordUltimite, "\u00A7b\u00A7lThe UltiBlade");
+    	   LanguageRegistry.addName(swordKraken, "Kraken Sword");
     	   
     	   //
     	   
@@ -272,7 +275,6 @@ public class UbahRPG
     	   LanguageRegistry.addName(krakenScale, "Kraken Scale");
     	   LanguageRegistry.addName(crystalNether, "Nether Crystal");
     	   LanguageRegistry.addName(ingotUltimite, "Ultimite Ingot");
-    	   LanguageRegistry.addName(book0, "\u00A7lAn Old Book");
     	   
     	   //
     	   

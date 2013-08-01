@@ -14,7 +14,7 @@ public class ItemPickaxeBasic extends ItemPickaxe{
 	 
 	 public void registerIcons(IconRegister par1IconRegister)
 	    {
-	    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));
+	    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + "tools/" + (this.getUnlocalizedName().substring(5)));
 	    }
 
 }

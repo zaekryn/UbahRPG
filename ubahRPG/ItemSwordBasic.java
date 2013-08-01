@@ -20,7 +20,7 @@ public class ItemSwordBasic extends ItemSword{
 	 @SideOnly(Side.CLIENT)
 	 public void registerIcons(IconRegister par1IconRegister)
 	    {
-	    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));
+	    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + "sword/" + (this.getUnlocalizedName().substring(5)));
 	    }
 	 
 	 public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
