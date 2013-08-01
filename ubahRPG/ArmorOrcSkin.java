@@ -25,6 +25,7 @@ this.setCreativeTab(UbahRPG.tabUbahRPG);
 /**
 *  To Add Armor Texture to Player when worn.
 */
+@SideOnly(Side.CLIENT)
 public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
 {
 if(itemID == UbahRPG.orcskinHelmet.itemID  || itemID == UbahRPG.orcskinChestplate.itemID || itemID == UbahRPG.orcskinBoots.itemID)
@@ -40,7 +41,7 @@ if(itemID == UbahRPG.orcskinLeggings.itemID)
 else return null;
 }
 
-
+@SideOnly(Side.CLIENT)
 public void registerIcons(IconRegister par1IconRegister)
 {
 	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));

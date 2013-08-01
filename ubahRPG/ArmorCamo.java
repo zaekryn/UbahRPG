@@ -38,7 +38,7 @@ public class ArmorCamo extends ItemArmor
 
     
 
-    
+    @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer)
     {
     if(itemID == UbahRPG.camoHelmet.itemID  || itemID == UbahRPG.camoChestplate.itemID || itemID == UbahRPG.camoBoots.itemID)
@@ -55,7 +55,7 @@ public class ArmorCamo extends ItemArmor
     }
     
 
-    
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
     	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));

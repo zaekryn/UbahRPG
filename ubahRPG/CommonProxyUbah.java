@@ -13,4 +13,9 @@ public class CommonProxyUbah {
 		
 	}
 	
+	public void registerRenderThings()
+	{
+		
+	}
+	
 }

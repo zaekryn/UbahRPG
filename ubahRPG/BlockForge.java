@@ -35,6 +35,7 @@ public class BlockForge extends BlockCore
            return par1 == 1 ? this.forgeIconTop : (par1 == 0 ? this.forgeIconTop : (par1 != 2 && par1 != 4 ? this.blockIcon : this.blockIcon));
        }
        
+       @SideOnly(Side.CLIENT)
        public void registerIcons(IconRegister par1IconRegister)
        {
     	   this.blockIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));

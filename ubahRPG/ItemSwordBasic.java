@@ -1,5 +1,7 @@
 package ubahRPG;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -15,6 +17,7 @@ public class ItemSwordBasic extends ItemSword{
 	  this.setCreativeTab(UbahRPG.tabUbahRPG);
 	 }
 	 
+	 @SideOnly(Side.CLIENT)
 	 public void registerIcons(IconRegister par1IconRegister)
 	    {
 	    	   this.itemIcon = par1IconRegister.registerIcon(UbahRPG.modid + ":" + (this.getUnlocalizedName().substring(5)));

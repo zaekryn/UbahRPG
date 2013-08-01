@@ -95,6 +95,8 @@ public class UbahRPG
        public static Item swordBasiliskFear;
        public static Item swordVampirialVanquish;
        public static Item swordUltimite;
+       //Bows
+       public static Item bowGhost;
        //Items
        public static Item basiliskFang;
        public static Item shardPeppermint;
@@ -144,8 +146,7 @@ public class UbahRPG
        public void preInit(FMLPreInitializationEvent event)
        {
     	   
-    	   proxy.renderEntity();
-    	   proxy.registerSound();
+    	   
     	   
        }
        
@@ -191,6 +192,10 @@ public class UbahRPG
     	   swordBasiliskFear = new ItemSwordBasilisk(6438, basilisk).setUnlocalizedName("swordBasiliskFear");
     	   swordVampirialVanquish = new ItemSwordVanquish(6439, vanquish).setUnlocalizedName("swordVampirialVanquish");
     	   swordUltimite = new ItemSwordBasic(6442, ultimiteWeapon).setUnlocalizedName("swordUltimite");
+    	   
+    	   //
+    	   
+    	   bowGhost = new BowGhost(6449).setUnlocalizedName("bowGhost");
     	   
     	   //
     	   
@@ -439,6 +444,14 @@ public class UbahRPG
                'D', shardDarkness, 'G', shardGhost, 'W',  new ItemStack(Item.skull, 1, 1)
                
         });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(bowGhost), new Object[]{
+               " GS",
+               "G S",
+               " GS",
+               'G', shardGhost, 'S', Item.silk
+        });
+    	   //
     	   URPG_ultimite = new Achievement(345, "Ultimite", -2, 0, ingotUltimite, null).registerAchievement();
     	   URPG_advancedCrafting = new Achievement(346, "AdvancedCrafting", 0, 0, weaponsForge, URPG_ultimite).registerAchievement();
     	   URPG_elfsForge = new Achievement(341, "ElfsForge", 0, 2, swordCandycane, URPG_advancedCrafting).registerAchievement();
@@ -454,6 +467,10 @@ public class UbahRPG
     	   AchievementPage.registerAchievementPage(AchievementUbahRPG);
     	   
     	   NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+    	   
+    	   proxy.renderEntity();
+    	   proxy.registerSound();
+    	   proxy.registerRenderThings();
     	   
        }
        
