@@ -69,11 +69,35 @@ public class UbahRPG
        static EnumArmorMaterial camo = EnumHelper.addArmorMaterial("camo", -1, new int[] {1, 1, 1, 1}, 0);
        
        
-       public static CreativeTabs tabUbahRPG = new CreativeTabs("ubgms_rpg_tabUbahRPG")
+       public static CreativeTabs tabGeneral = new CreativeTabs("ubgms_rpg_tabGeneral")
        {
     	   public ItemStack getIconItemStack()
     	   {
     		   return new ItemStack(ingotUltimite);
+    	   }
+       };
+       //
+       public static CreativeTabs tabWeaponry = new CreativeTabs("ubgms_rpg_tabWeaponry")
+       {
+    	   public ItemStack getIconItemStack()
+    	   {
+    		   return new ItemStack(swordKraken);
+    	   }
+       };
+       //
+       public static CreativeTabs tabTools = new CreativeTabs("ubgms_rpg_tabTools")
+       {
+    	   public ItemStack getIconItemStack()
+    	   {
+    		   return new ItemStack(pickUltimite);
+    	   }
+       };
+       //
+       public static CreativeTabs tabArmor = new CreativeTabs("ubgms_rpg_tabArmor")
+       {
+    	   public ItemStack getIconItemStack()
+    	   {
+    		   return new ItemStack(camoHelmet);
     	   }
        };
        
@@ -98,6 +122,8 @@ public class UbahRPG
        public static Item swordVampirialVanquish;
        public static Item swordUltimite;
        public static Item swordKraken;
+       public static Item swordUbah;
+       public static Item swordUnicorn;
        //Bows
        public static Item bowGhost;
        public static Item bowPhoenix;
@@ -196,6 +222,8 @@ public class UbahRPG
     	   swordVampirialVanquish = new ItemSwordVanquish(6439, vanquish).setUnlocalizedName("swordVampirialVanquish");
     	   swordUltimite = new ItemSwordBasic(6442, ultimiteWeapon).setUnlocalizedName("swordUltimite");
     	   swordKraken = new ItemSwordKraken(6450, kraken).setUnlocalizedName("swordKraken");
+    	   swordUbah = new ItemSwordBasic(6455, EnumToolMaterial.IRON).setUnlocalizedName("swordUbah");
+    	   swordUnicorn = new ItemSwordUnicorn(6456, EnumToolMaterial.STONE).setUnlocalizedName("swordUnicorn");
     	   
     	   //
     	   
@@ -259,12 +287,14 @@ public class UbahRPG
     	   LanguageRegistry.addName(swordBasiliskFear, "\u00A72\u00A7lThe Basilisk's Fear");
     	   LanguageRegistry.addName(swordVampirialVanquish, "\u00A75\u00A7lThe Vampirial Vanquish");
     	   LanguageRegistry.addName(swordUltimite, "\u00A7b\u00A7lThe UltiBlade");
-    	   LanguageRegistry.addName(swordKraken, "Kraken Sword");
+    	   LanguageRegistry.addName(swordKraken, "\u00A71\u00A7lKraken Sword");
+    	   LanguageRegistry.addName(swordUbah, "\u00A76Ubah\u00A7aSword");
+    	   LanguageRegistry.addName(swordUnicorn, "\u00A7lUnicorn Sword");
     	   
     	   //
     	   
     	   LanguageRegistry.addName(bowGhost, "Ghost Bow");
-    	   LanguageRegistry.addName(bowPhoenix, "Phoeinix Bow");
+    	   LanguageRegistry.addName(bowPhoenix, "Phoenix Bow");
     	   
     	   //
     	   
@@ -294,7 +324,10 @@ public class UbahRPG
     	   
     	   //
     	   
-    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabUbahRPG", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabGeneral", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- General");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabWeaponry", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Weapons");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabTools", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Tools");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabArmor", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Armor");
     	   
     	   //
     	   

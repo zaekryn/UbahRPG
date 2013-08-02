@@ -14,7 +14,7 @@ public class BlockOreUltimite extends BlockCore
        public BlockOreUltimite(int id, Material par2Material)
        {
              super(id, par2Material);
-             this.setCreativeTab(UbahRPG.tabUbahRPG);
+             this.setCreativeTab(UbahRPG.tabGeneral);
        }
        
        public int idDropped(int par1, Random par2Random, int par3)

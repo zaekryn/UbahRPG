@@ -7,6 +7,6 @@ public class ItemDrop extends ItemCore
        public ItemDrop(int id)
        {
              super(id);
-             this.setCreativeTab(UbahRPG.tabUbahRPG);
+             this.setCreativeTab(UbahRPG.tabGeneral);
        }
 }

@@ -22,7 +22,7 @@ public class BlockForge extends BlockCore
        public BlockForge(int id)
        {
              super(id, Material.iron);
-             this.setCreativeTab(UbahRPG.tabUbahRPG);
+             this.setCreativeTab(UbahRPG.tabGeneral);
        }
       
        @SideOnly(Side.CLIENT)

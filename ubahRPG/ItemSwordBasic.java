@@ -14,7 +14,7 @@ public class ItemSwordBasic extends ItemSword{
 	 public ItemSwordBasic(int itemID, EnumToolMaterial toolMaterial)
 	 {
 	  super(itemID, toolMaterial);
-	  this.setCreativeTab(UbahRPG.tabUbahRPG);
+	  this.setCreativeTab(UbahRPG.tabWeaponry);
 	 }
 	 
 	 @SideOnly(Side.CLIENT)

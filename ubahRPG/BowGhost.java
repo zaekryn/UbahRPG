@@ -22,7 +22,6 @@ public class BowGhost extends BowBasic{
 	{
 	super(par1);
 	this.setMaxDamage(1);
-    this.setCreativeTab(UbahRPG.tabUbahRPG);
 	}
 	
 	

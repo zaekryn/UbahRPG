@@ -27,7 +27,7 @@ public class BowBasic extends ItemBow
     public BowBasic(int par1)
     {
         super(par1);
-        this.setCreativeTab(UbahRPG.tabUbahRPG);
+        this.setCreativeTab(UbahRPG.tabWeaponry);
     }
 
     

@@ -22,7 +22,6 @@ public class BowPhoenix extends BowBasic{
 	{
 	super(par1);
 	this.setMaxDamage(600);
-    this.setCreativeTab(UbahRPG.tabUbahRPG);
 	}
 	
 	
