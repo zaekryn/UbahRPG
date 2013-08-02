@@ -14,6 +14,7 @@ public class ClientProxyUbah extends CommonProxyUbah
 	public void renderEntity()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityElf.class, new RenderElf(new ModelElf(), 0.3F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityOrc.class, new RenderOrc(new ModelOrc(), 0.3F));
 	}
 	
 	@Override

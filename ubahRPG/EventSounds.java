@@ -13,6 +13,11 @@ public class EventSounds {
         	event.manager.addSound("ubgms_rpg:mob/elf/say.ogg");
         	event.manager.addSound("ubgms_rpg:mob/elf/death.ogg");
         	event.manager.addSound("ubgms_rpg:mob/elf/hurt.ogg");
+        	//
+        	event.manager.addSound("ubgms_rpg:mob/orc/say.ogg");
+        	event.manager.addSound("ubgms_rpg:mob/orc/death.ogg");
+        	event.manager.addSound("ubgms_rpg:mob/orc/hurt.ogg");
+        	//
         	event.manager.addSound("ubgms_rpg:random/drawSword.wav");
             
         }
