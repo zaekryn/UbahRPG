@@ -20,5 +20,6 @@ public class ClientProxyUbah extends CommonProxyUbah
 	public void registerRenderThings()
 	{
 		MinecraftForgeClient.registerItemRenderer(UbahRPG.bowGhost.itemID, new RenderBow());
+		MinecraftForgeClient.registerItemRenderer(UbahRPG.bowPhoenix.itemID, new RenderBow());
 	}
 }
