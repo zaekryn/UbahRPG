@@ -100,6 +100,7 @@ public class UbahRPG
        public static Item swordKraken;
        //Bows
        public static Item bowGhost;
+       public static Item bowPhoenix;
        //Items
        public static Item basiliskFang;
        public static Item shardPeppermint;
@@ -116,6 +117,9 @@ public class UbahRPG
        public static Item crystalNether;
        public static Item ingotUltimite;
        public static Item candy;
+       public static Item krakenSoul;
+       public static Item phoenixSoul;
+       public static Item ash;
        //
        public static Item book0;
        //Blocks
@@ -163,16 +167,12 @@ public class UbahRPG
     	   EntityRegistry.registerModEntity(EntityElf.class, "Elf", 1, this, 80, 1, true);
     	   //
     	   EntityEgg(EntityElf.class, 0x00ff00, 0xdc143c);
-    	   
-    	   
-    	   
-    	   
+    	   //
     	   GameRegistry.registerWorldGenerator(new UbahWorldGeneration());
     	   //
     	   EntityRegistry.addSpawn(EntityElf.class, 10, 2, 5, EnumCreatureType.monster, BiomeGenBase.frozenRiver, BiomeGenBase.frozenOcean, BiomeGenBase.iceMountains, BiomeGenBase.icePlains);
     	   //
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Elf.name", "Elf");
-    	   //
     	   
     	   orcskinHelmet = new ArmorOrcSkin(6410, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
     	   orcskinChestplate = new ArmorOrcSkin(6411, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
@@ -200,6 +200,7 @@ public class UbahRPG
     	   //
     	   
     	   bowGhost = new BowGhost(6449).setUnlocalizedName("bowGhost");
+    	   bowPhoenix = new BowPhoenix(6451).setUnlocalizedName("bowPhoenix");
     	   
     	   //
     	   
@@ -217,7 +218,12 @@ public class UbahRPG
     	   krakenScale = new ItemDrop(6435).setUnlocalizedName("krakenScale");
     	   crystalNether = new ItemDrop(6436).setUnlocalizedName("crystalNether");
     	   ingotUltimite = new ItemBasic(6440).setUnlocalizedName("ingotUltimite");
+    	   krakenSoul  = new ItemDrop(6452).setUnlocalizedName("krakenSoul");
+    	   phoenixSoul  = new ItemDrop(6453).setUnlocalizedName("phoenixSoul");
+    	   ash = new ItemDrop(6454).setUnlocalizedName("ash");
+    	   
     	   //
+    	   
     	   candy = new ItemEdible(6443, 1, false).setUnlocalizedName("candy");
     	   
     	   //
@@ -258,6 +264,7 @@ public class UbahRPG
     	   //
     	   
     	   LanguageRegistry.addName(bowGhost, "Ghost Bow");
+    	   LanguageRegistry.addName(bowPhoenix, "Phoeinix Bow");
     	   
     	   //
     	   
@@ -275,6 +282,9 @@ public class UbahRPG
     	   LanguageRegistry.addName(krakenScale, "Kraken Scale");
     	   LanguageRegistry.addName(crystalNether, "Nether Crystal");
     	   LanguageRegistry.addName(ingotUltimite, "Ultimite Ingot");
+    	   LanguageRegistry.addName(krakenSoul, "Kraken Soul");
+    	   LanguageRegistry.addName(phoenixSoul, "Phoenix Soul");
+    	   LanguageRegistry.addName(ash, "Phoenix Ashes");
     	   
     	   //
     	   
@@ -343,7 +353,13 @@ public class UbahRPG
         });
     	   //
     	   
-    	   
+    	   GameRegistry.addShapelessRecipe(new ItemStack(krakenSoul, 2), new Object[]{
+               new ItemStack(krakenScale)
+        });
+    	   //
+    	   GameRegistry.addShapelessRecipe(new ItemStack(phoenixSoul, 2), new Object[]{
+               new ItemStack(ash)
+        });
     	   
     	   //
     	   GameRegistry.addRecipe(new ItemStack(crystalCandycane), new Object[]{
@@ -451,11 +467,25 @@ public class UbahRPG
                
         });
     	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordKraken), new Object[]{
+               "ISI",
+               "ISI",
+               " D ",
+               'S', krakenSoul, 'I', Item.ingotIron, 'D', Item.swordDiamond
+        });
+    	   //
     	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(bowGhost), new Object[]{
                " GS",
                "G S",
                " GS",
                'G', shardGhost, 'S', Item.silk
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(bowPhoenix), new Object[]{
+               " GS",
+               "GUS",
+               " GS",
+               'G', phoenixSoul, 'S', Item.silk, 'U', ingotUltimite
         });
     	   //
     	   URPG_ultimite = new Achievement(345, "Ultimite", -2, 0, ingotUltimite, null).registerAchievement();
