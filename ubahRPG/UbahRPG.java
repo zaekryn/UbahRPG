@@ -63,7 +63,7 @@ public class UbahRPG
        static EnumToolMaterial kraken = EnumHelper.addToolMaterial("kraken", 1, 500, 2F, 3, 30);
        //
        static EnumToolMaterial ultimite = EnumHelper.addToolMaterial("ultimite", 3, 300, 7F, 0, 30);
-       static EnumToolMaterial ultimiteWeapon = EnumHelper.addToolMaterial("ultimiteWeapon", 1, 300, 2F, 7, 30);
+       static EnumToolMaterial ultimiteWeapon = EnumHelper.addToolMaterial("ultimiteWeapon", 1, 300, 2F, 46, 30);
        //
        static EnumArmorMaterial orcskin = EnumHelper.addArmorMaterial("orcskin", 200, new int[] {2, 2, 2, 2}, 15);
        static EnumArmorMaterial camo = EnumHelper.addArmorMaterial("camo", -1, new int[] {1, 1, 1, 1}, 0);
@@ -113,6 +113,11 @@ public class UbahRPG
        public static Item camoChestplate;
        public static Item camoLeggings;
        public static Item camoBoots;
+       //
+       public static Item uniHelmet;
+       public static Item uniChestplate;
+       public static Item uniLeggings;
+       public static Item uniBoots;
        //Tools
        public static Item pickUltimite;
        //Swords
@@ -142,16 +147,19 @@ public class UbahRPG
        public static Item krakenScale;
        public static Item crystalNether;
        public static Item ingotUltimite;
+       public static Item ingotUnicornite;
        public static Item candy;
        public static Item krakenSoul;
        public static Item phoenixSoul;
        public static Item ash;
+       public static Item unicornHorn;
        //
        public static Item book0;
        //Blocks
        public static Block weaponsForge;
        //
        public static Block oreUltimite;
+       public static Block oreUnicornite;
        //
        public static Block candyCane;
        
@@ -191,14 +199,17 @@ public class UbahRPG
     	   
     	   
     	   EntityRegistry.registerModEntity(EntityElf.class, "Elf", 1, this, 80, 1, true);
+    	   EntityRegistry.registerModEntity(EntityOrc.class, "Orc", 2, this, 80, 1, true);
     	   //
     	   EntityEgg(EntityElf.class, 0x00ff00, 0xdc143c);
+    	   EntityEgg(EntityOrc.class, 0xC7F22C, 0x778A32);
     	   //
     	   GameRegistry.registerWorldGenerator(new UbahWorldGeneration());
     	   //
     	   EntityRegistry.addSpawn(EntityElf.class, 10, 2, 5, EnumCreatureType.monster, BiomeGenBase.frozenRiver, BiomeGenBase.frozenOcean, BiomeGenBase.iceMountains, BiomeGenBase.icePlains);
     	   //
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Elf.name", "Elf");
+    	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Orc.name", "Orc");
     	   
     	   orcskinHelmet = new ArmorOrcSkin(6410, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
     	   orcskinChestplate = new ArmorOrcSkin(6411, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
@@ -209,6 +220,11 @@ public class UbahRPG
     	   camoChestplate = new ArmorCamo(6445, camo, 3, 1).setUnlocalizedName("camoChestplate");
     	   camoLeggings = new ArmorCamo(6446, camo, 3, 2).setUnlocalizedName("camoLeggings");
     	   camoBoots = new ArmorCamo(6447, camo, 3, 3).setUnlocalizedName("camoBoots");
+    	   //
+    	   uniHelmet = new ArmorUni(6459, EnumArmorMaterial.CHAIN, 3, 0).setUnlocalizedName("uniHelmet");
+    	   uniChestplate = new ArmorUni(6460, EnumArmorMaterial.CHAIN, 3, 1).setUnlocalizedName("uniChestplate");
+    	   uniLeggings = new ArmorUni(6461, EnumArmorMaterial.CHAIN, 3, 2).setUnlocalizedName("uniLeggings");
+    	   uniBoots = new ArmorUni(6462, EnumArmorMaterial.CHAIN, 3, 3).setUnlocalizedName("uniBoots");
     	   
     	   //
     	   
@@ -249,6 +265,8 @@ public class UbahRPG
     	   krakenSoul  = new ItemDrop(6452).setUnlocalizedName("krakenSoul");
     	   phoenixSoul  = new ItemDrop(6453).setUnlocalizedName("phoenixSoul");
     	   ash = new ItemDrop(6454).setUnlocalizedName("ash");
+    	   unicornHorn = new ItemShiny(6457).setUnlocalizedName("unicornHorn");
+    	   ingotUnicornite = new ItemBasic(6458).setUnlocalizedName("ingotUnicornite");
     	   
     	   //
     	   
@@ -257,10 +275,9 @@ public class UbahRPG
     	   //
     	   
     	   weaponsForge = new BlockForge(3056).setLightValue(1F).setHardness(5.0F).setUnlocalizedName("weaponsForge");
-    	   
     	   //
-    	   
     	   oreUltimite = new BlockOreUltimite(3057, Material.rock).setHardness(5F).setUnlocalizedName("oreUltimite");
+    	   oreUnicornite = new BlockOreUnicornite(3059, Material.rock).setHardness(5F).setUnlocalizedName("oreUnicornite");
     	   //
     	   candyCane = new BlockCandy(3058, Material.ice).setHardness(2F).setUnlocalizedName("candyCane");
     	   
@@ -275,6 +292,11 @@ public class UbahRPG
     	   LanguageRegistry.addName(camoChestplate, "Camouflage");
     	   LanguageRegistry.addName(camoLeggings, "Camouflage");
     	   LanguageRegistry.addName(camoBoots, "Camouflage");
+    	   //
+    	   LanguageRegistry.addName(uniHelmet, "Unicorn Helmet");
+    	   LanguageRegistry.addName(uniChestplate, "Unicorn Chestplate");
+    	   LanguageRegistry.addName(uniLeggings, "Unicorn Pants");
+    	   LanguageRegistry.addName(uniBoots, "Unicorn Boots");
     	   
     	   //
     	   
@@ -315,11 +337,14 @@ public class UbahRPG
     	   LanguageRegistry.addName(krakenSoul, "Kraken Soul");
     	   LanguageRegistry.addName(phoenixSoul, "Phoenix Soul");
     	   LanguageRegistry.addName(ash, "Phoenix Ashes");
+    	   LanguageRegistry.addName(unicornHorn, "Unicorn Horn");
+    	   LanguageRegistry.addName(ingotUnicornite, "Unicornite Ingot");
     	   
     	   //
     	   
     	   LanguageRegistry.addName(weaponsForge, "\u00A7lWeapons Forge");
     	   LanguageRegistry.addName(oreUltimite, "Ultimite Ore");
+    	   LanguageRegistry.addName(oreUnicornite, "Unicornite Ore");
     	   LanguageRegistry.addName(candyCane, "Candy Cane Block");
     	   
     	   //
@@ -369,11 +394,13 @@ public class UbahRPG
     	   //
     	   
     	   MinecraftForge.setBlockHarvestLevel(oreUltimite, "pickaxe", 3);
+    	   MinecraftForge.setBlockHarvestLevel(oreUnicornite, "pickaxe", 3);
     	   
     	   //
     	   
     	   GameRegistry.registerBlock(weaponsForge, "weaponsForge");
     	   GameRegistry.registerBlock(oreUltimite, "oreUltimite");
+    	   GameRegistry.registerBlock(oreUnicornite, "oreUnicornite");
     	   GameRegistry.registerBlock(candyCane, "candyCane");
     	   
     	   //
@@ -455,6 +482,32 @@ public class UbahRPG
                'O', Block.leaves
         });
     	   //
+    	   GameRegistry.addRecipe(new ItemStack(uniHelmet), new Object[]{
+               "OOO",
+               "O O",
+               'O', ingotUnicornite
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(uniChestplate), new Object[]{
+               "O O",
+               "OOO",
+               "OOO",
+               'O', ingotUnicornite
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(uniLeggings), new Object[]{
+               "OOO",
+               "O O",
+               "O O",
+               'O', ingotUnicornite
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(uniBoots), new Object[]{
+               "O O",
+               "O O",
+               'O', ingotUnicornite
+        });
+    	   //
     	   GameRegistry.addRecipe(new ItemStack(pickUltimite), new Object[]{
                "UUU",
                " S ",
@@ -505,6 +558,20 @@ public class UbahRPG
                "ISI",
                " D ",
                'S', krakenSoul, 'I', Item.ingotIron, 'D', Item.swordDiamond
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordUbah), new Object[]{
+               "OIG",
+               "OIG",
+               " S ",
+               'O', krakenSoul, 'I', Item.ingotIron, 'G', Item.swordDiamond, 'S', Item.stick
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordUnicorn), new Object[]{
+               " H ",
+               "UUU",
+               " S ",
+               'H', unicornHorn, 'U', ingotUnicornite, 'S', Item.stick
         });
     	   //
     	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(bowGhost), new Object[]{
