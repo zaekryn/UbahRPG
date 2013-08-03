@@ -564,7 +564,7 @@ public class UbahRPG
                "OIG",
                "OIG",
                " S ",
-               'O', krakenSoul, 'I', Item.ingotIron, 'G', Item.swordDiamond, 'S', Item.stick
+               'O', new ItemStack(Item.dyePowder, 1, 14), 'I', Item.ingotIron, 'G', new ItemStack(Item.dyePowder, 1, 10), 'S', Item.stick
         });
     	   //
     	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordUnicorn), new Object[]{
