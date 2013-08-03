@@ -29,12 +29,13 @@ public class BowGhost extends BowBasic{
 	
 @SideOnly(Side.CLIENT)
     
-    private Icon[] Texture = new Icon[4];
+    private Icon[] Texture;
     public void registerIcons(IconRegister iconRegister)
     
     {
     	
              itemIcon = iconRegister.registerIcon(UbahRPG.modid + ":" + "bow/" + (this.getUnlocalizedName().substring(5)) + "_0");
+             Texture = new Icon[4];
              for (int N = 0; N < 4; N++)
              {
                      this.Texture[N] = iconRegister.registerIcon(UbahRPG.modid + ":" + "bow/" + (this.getUnlocalizedName().substring(5)) + "_" + N);
