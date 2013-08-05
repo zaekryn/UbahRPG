@@ -21,5 +21,9 @@ if(item.getEntityItem().itemID == UbahRPG.orcSkin.itemID)
 player.addStat(UbahRPG.URPG_orcskin, 1);
 }
 
+if(item.getEntityItem().itemID == UbahRPG.ingotUnicornite.itemID)
+{
+player.addStat(UbahRPG.URPG_unicornite, 1);
+}
 }
 }

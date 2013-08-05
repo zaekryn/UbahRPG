@@ -34,11 +34,7 @@ public class ItemSwordUnicorn extends ItemSwordBasic
         this.weaponDamage = 4.0F + par2EnumToolMaterial.getDamageVsEntity();
     }
     
-    @SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack par1ItemStack)
-    {
-        return true;
-    }
+    
     
     public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
     {

@@ -68,6 +68,40 @@ if (item.itemID == UbahRPG.orcskinBoots.itemID)
 player.addStat(UbahRPG.URPG_armorOrcskin, 1);
 }
 
+if (item.itemID == UbahRPG.swordKraken.itemID)
+{
+player.addStat(UbahRPG.URPG_swordOfTheSea, 1);
+}
+
+if (item.itemID == UbahRPG.swordUnicorn.itemID)
+{
+player.addStat(UbahRPG.URPG_pinkSword, 1);
+}
+
+if (item.itemID == UbahRPG.uniHelmet.itemID)
+{
+player.addStat(UbahRPG.URPG_armorUnicornite, 1);
+}
+
+if (item.itemID == UbahRPG.uniChestplate.itemID)
+{
+player.addStat(UbahRPG.URPG_armorUnicornite, 1);
+}
+
+if (item.itemID == UbahRPG.uniLeggings.itemID)
+{
+player.addStat(UbahRPG.URPG_armorUnicornite, 1);
+}
+
+if (item.itemID == UbahRPG.uniBoots.itemID)
+{
+player.addStat(UbahRPG.URPG_armorUnicornite, 1);
+}
+
+if (item.itemID == UbahRPG.swordUbah.itemID)
+{
+player.addStat(UbahRPG.URPG_customization, 1);
+}
 }
 
 @Override

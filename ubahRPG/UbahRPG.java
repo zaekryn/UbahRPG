@@ -3,6 +3,7 @@ package ubahRPG;
 import java.awt.Color;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockPortal;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -23,6 +24,7 @@ import net.minecraft.stats.Achievement;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
@@ -49,7 +51,8 @@ public class UbahRPG
        @SidedProxy(clientSide = "ubahRPG.ClientProxyUbah", serverSide = "ubahRPG.CommonProxyUbah")
        public static CommonProxyUbah proxy;
        
-       
+       public static boolean addToDefault;
+       public static boolean biomeOceaniaGen;
        
        @Instance(UbahRPG.modid)//<<<Must be the same as your modid
        public static UbahRPG instance;
@@ -67,6 +70,7 @@ public class UbahRPG
        //
        static EnumArmorMaterial orcskin = EnumHelper.addArmorMaterial("orcskin", 200, new int[] {2, 2, 2, 2}, 15);
        static EnumArmorMaterial camo = EnumHelper.addArmorMaterial("camo", -1, new int[] {1, 1, 1, 1}, 0);
+       static EnumArmorMaterial plain = EnumHelper.addArmorMaterial("plain", -1, new int[] {0, 0, 0, 0}, 0);
        
        
        public static CreativeTabs tabGeneral = new CreativeTabs("ubgms_rpg_tabGeneral")
@@ -103,6 +107,13 @@ public class UbahRPG
        
        public static AchievementPage AchievementUbahRPG;
        
+       public static int OceaniaID = 64;
+       public static int FantasmaID = 65;
+       public static int OtherDimID = 66;
+       
+       
+       public static BiomeGenBase oceaniaBiome;
+       
        //Armor
        public static Item orcskinHelmet;
        public static Item orcskinChestplate;
@@ -118,6 +129,8 @@ public class UbahRPG
        public static Item uniChestplate;
        public static Item uniLeggings;
        public static Item uniBoots;
+       //
+       public static Item airMask;
        //Tools
        public static Item pickUltimite;
        //Swords
@@ -155,13 +168,18 @@ public class UbahRPG
        public static Item unicornHorn;
        //
        public static Item book0;
+       public static Item activator;
        //Blocks
        public static Block weaponsForge;
+       public static BlockActivatorFire activatorFire;
        //
        public static Block oreUltimite;
        public static Block oreUnicornite;
        //
        public static Block candyCane;
+       public static Block bedSand;
+       //
+       public static BlockPortalOceania portalOceania;
        
      //Achievements
        
@@ -170,13 +188,18 @@ public class UbahRPG
        public static Achievement URPG_aSnakesEqual;
        public static Achievement URPG_vampirialWeaponry;
        public static Achievement URPG_ultiblade;
+       public static Achievement URPG_pinkSword;
+       public static Achievement URPG_customization;
+       public static Achievement URPG_swordOfTheSea;
        //
        public static Achievement URPG_ultimite;
+       public static Achievement URPG_unicornite;
        public static Achievement URPG_advancedCrafting;
        public static Achievement URPG_toolery;
        public static Achievement URPG_orcskin;
        //
        public static Achievement URPG_armorOrcskin;
+       public static Achievement URPG_armorUnicornite;
        
         
        
@@ -187,7 +210,7 @@ public class UbahRPG
        public void preInit(FMLPreInitializationEvent event)
        {
     	   
-    	   
+    	   ConfigHandler.init(event.getSuggestedConfigurationFile());
     	   
        }
        
@@ -195,7 +218,11 @@ public class UbahRPG
        @EventHandler
        public void init(FMLInitializationEvent event)
        {
-        
+    	   
+    	   
+    	   DimensionManager.registerProviderType(OceaniaID, WorldProviderOceania.class, true);
+    	   DimensionManager.registerDimension(OceaniaID, OceaniaID);
+    	   
     	   
     	   
     	   EntityRegistry.registerModEntity(EntityElf.class, "Elf", 1, this, 80, 1, true);
@@ -211,75 +238,81 @@ public class UbahRPG
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Elf.name", "Elf");
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Orc.name", "Orc");
     	   
-    	   orcskinHelmet = new ArmorOrcSkin(6410, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
-    	   orcskinChestplate = new ArmorOrcSkin(6411, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
-    	   orcskinLeggings = new ArmorOrcSkin(6412, orcskin, 3, 2).setUnlocalizedName("orcskinLeggings");
-    	   orcskinBoots = new ArmorOrcSkin(6413, orcskin, 3, 3).setUnlocalizedName("orcskinBoots");
+    	   orcskinHelmet = new ArmorOrcSkin(ID.orcskinHelmet_actual, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
+    	   orcskinChestplate = new ArmorOrcSkin(ID.orcskinChestplate_actual, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
+    	   orcskinLeggings = new ArmorOrcSkin(ID.orcskinLeggings_actual, orcskin, 3, 2).setUnlocalizedName("orcskinLeggings");
+    	   orcskinBoots = new ArmorOrcSkin(ID.orcskinBoots_actual, orcskin, 3, 3).setUnlocalizedName("orcskinBoots");
     	   //
-    	   camoHelmet = new ArmorCamo(6444, camo, 3, 0).setUnlocalizedName("camoHelmet");
-    	   camoChestplate = new ArmorCamo(6445, camo, 3, 1).setUnlocalizedName("camoChestplate");
-    	   camoLeggings = new ArmorCamo(6446, camo, 3, 2).setUnlocalizedName("camoLeggings");
-    	   camoBoots = new ArmorCamo(6447, camo, 3, 3).setUnlocalizedName("camoBoots");
+    	   camoHelmet = new ArmorCamo(ID.camoHelmet_actual, camo, 3, 0).setUnlocalizedName("camoHelmet");
+    	   camoChestplate = new ArmorCamo(ID.camoChestplate_actual, camo, 3, 1).setUnlocalizedName("camoChestplate");
+    	   camoLeggings = new ArmorCamo(ID.camoLeggings_actual, camo, 3, 2).setUnlocalizedName("camoLeggings");
+    	   camoBoots = new ArmorCamo(ID.camoBoots_actual, camo, 3, 3).setUnlocalizedName("camoBoots");
     	   //
-    	   uniHelmet = new ArmorUni(6459, EnumArmorMaterial.CHAIN, 3, 0).setUnlocalizedName("uniHelmet");
-    	   uniChestplate = new ArmorUni(6460, EnumArmorMaterial.CHAIN, 3, 1).setUnlocalizedName("uniChestplate");
-    	   uniLeggings = new ArmorUni(6461, EnumArmorMaterial.CHAIN, 3, 2).setUnlocalizedName("uniLeggings");
-    	   uniBoots = new ArmorUni(6462, EnumArmorMaterial.CHAIN, 3, 3).setUnlocalizedName("uniBoots");
-    	   
+    	   uniHelmet = new ArmorUni(ID.uniHelmet_actual, EnumArmorMaterial.CHAIN, 3, 0).setUnlocalizedName("uniHelmet");
+    	   uniChestplate = new ArmorUni(ID.uniChestplate_actual, EnumArmorMaterial.CHAIN, 3, 1).setUnlocalizedName("uniChestplate");
+    	   uniLeggings = new ArmorUni(ID.uniLeggings_actual, EnumArmorMaterial.CHAIN, 3, 2).setUnlocalizedName("uniLeggings");
+    	   uniBoots = new ArmorUni(ID.uniBoots_actual, EnumArmorMaterial.CHAIN, 3, 3).setUnlocalizedName("uniBoots");
     	   //
-    	   
-    	   pickUltimite = new ItemPickaxeBasic(6441, ultimite).setUnlocalizedName("pickUltimite");
+    	   airMask = new ArmorAirMask(ID.airMask_actual, plain, 3, 0).setUnlocalizedName("airMask");
     	   
     	   //
     	   
-    	   swordMagmaBlaze = new ItemSwordMagmaBlaze(6423, magmablaze).setUnlocalizedName("swordMagmaBlaze");
-    	   swordCandycane = new ItemSwordBasic(6437, candycane).setUnlocalizedName("swordCandycane");
-    	   swordBasiliskFear = new ItemSwordBasilisk(6438, basilisk).setUnlocalizedName("swordBasiliskFear");
-    	   swordVampirialVanquish = new ItemSwordVanquish(6439, vanquish).setUnlocalizedName("swordVampirialVanquish");
-    	   swordUltimite = new ItemSwordBasic(6442, ultimiteWeapon).setUnlocalizedName("swordUltimite");
-    	   swordKraken = new ItemSwordKraken(6450, kraken).setUnlocalizedName("swordKraken");
-    	   swordUbah = new ItemSwordBasic(6455, EnumToolMaterial.IRON).setUnlocalizedName("swordUbah");
-    	   swordUnicorn = new ItemSwordUnicorn(6456, EnumToolMaterial.STONE).setUnlocalizedName("swordUnicorn");
+    	   pickUltimite = new ItemPickaxeBasic(ID.pickUltimite_actual, ultimite).setUnlocalizedName("pickUltimite");
     	   
     	   //
     	   
-    	   bowGhost = new BowGhost(6449).setUnlocalizedName("bowGhost");
-    	   bowPhoenix = new BowPhoenix(6451).setUnlocalizedName("bowPhoenix");
+    	   swordMagmaBlaze = new ItemSwordMagmaBlaze(ID.swordMagmaBlaze_actual, magmablaze).setUnlocalizedName("swordMagmaBlaze");
+    	   swordCandycane = new ItemSwordBasic(ID.swordCandycane_actual, candycane).setUnlocalizedName("swordCandycane");
+    	   swordBasiliskFear = new ItemSwordBasilisk(ID.swordBasiliskFear_actual, basilisk).setUnlocalizedName("swordBasiliskFear");
+    	   swordVampirialVanquish = new ItemSwordVanquish(ID.swordVampirialVanquish_actual, vanquish).setUnlocalizedName("swordVampirialVanquish");
+    	   swordUltimite = new ItemSwordBasic(ID.swordUltimite_actual, ultimiteWeapon).setUnlocalizedName("swordUltimite");
+    	   swordKraken = new ItemSwordKraken(ID.swordKraken_actual, kraken).setUnlocalizedName("swordKraken");
+    	   swordUbah = new ItemSwordBasic(ID.swordUbah_actual, EnumToolMaterial.IRON).setUnlocalizedName("swordUbah");
+    	   swordUnicorn = new ItemSwordUnicorn(ID.swordUnicorn_actual, EnumToolMaterial.STONE).setUnlocalizedName("swordUnicorn");
     	   
     	   //
     	   
-    	   basiliskFang = new ItemDrop(6424).setUnlocalizedName("basiliskFang");
-    	   shardPeppermint = new ItemDrop(6425).setUnlocalizedName("shardPeppermint");
-    	   crystalCandycane = new ItemDrop(6426).setUnlocalizedName("crystalCandycane");
-    	   orcSkin = new ItemDrop(6427).setUnlocalizedName("orcSkin");
-    	   shardDarkness = new ItemDrop(6428).setUnlocalizedName("shardDarkness");
-    	   impSoul = new ItemDrop(6429).setUnlocalizedName("impSoul");
-    	   yetiFur = new ItemDrop(6430).setUnlocalizedName("yetiFur");
-    	   shardGhost = new ItemDrop(6431).setUnlocalizedName("shardGhost");
-    	   centaurRing = new ItemDrop(6432).setUnlocalizedName("centaurRing");
-    	   gryphonFeather = new ItemDrop(6433).setUnlocalizedName("gryphonFeather");
-    	   crystalSatyr = new ItemDrop(6434).setUnlocalizedName("crystalSatyr");
-    	   krakenScale = new ItemDrop(6435).setUnlocalizedName("krakenScale");
-    	   crystalNether = new ItemDrop(6436).setUnlocalizedName("crystalNether");
-    	   ingotUltimite = new ItemBasic(6440).setUnlocalizedName("ingotUltimite");
-    	   krakenSoul  = new ItemDrop(6452).setUnlocalizedName("krakenSoul");
-    	   phoenixSoul  = new ItemDrop(6453).setUnlocalizedName("phoenixSoul");
-    	   ash = new ItemDrop(6454).setUnlocalizedName("ash");
-    	   unicornHorn = new ItemShiny(6457).setUnlocalizedName("unicornHorn");
-    	   ingotUnicornite = new ItemBasic(6458).setUnlocalizedName("ingotUnicornite");
+    	   bowGhost = new BowGhost(ID.bowGhost_actual).setUnlocalizedName("bowGhost");
+    	   bowPhoenix = new BowPhoenix(ID.bowPhoenix_actual).setUnlocalizedName("bowPhoenix");
     	   
     	   //
     	   
-    	   candy = new ItemEdible(6443, 1, false).setUnlocalizedName("candy");
+    	   basiliskFang = new ItemDrop(ID.basiliskFang_actual).setUnlocalizedName("basiliskFang");
+    	   shardPeppermint = new ItemDrop(ID.shardPeppermint_actual).setUnlocalizedName("shardPeppermint");
+    	   crystalCandycane = new ItemDrop(ID.crystalCandycane_actual).setUnlocalizedName("crystalCandycane");
+    	   orcSkin = new ItemDrop(ID.orcSkin_actual).setUnlocalizedName("orcSkin");
+    	   shardDarkness = new ItemDrop(ID.shardDarkness_actual).setUnlocalizedName("shardDarkness");
+    	   impSoul = new ItemDrop(ID.impSoul_actual).setUnlocalizedName("impSoul");
+    	   yetiFur = new ItemDrop(ID.yetiFur_actual).setUnlocalizedName("yetiFur");
+    	   shardGhost = new ItemDrop(ID.shardGhost_actual).setUnlocalizedName("shardGhost");
+    	   centaurRing = new ItemDrop(ID.centaurRing_actual).setUnlocalizedName("centaurRing");
+    	   gryphonFeather = new ItemDrop(ID.gryphonFeather_actual).setUnlocalizedName("gryphonFeather");
+    	   crystalSatyr = new ItemDrop(ID.crystalSatyr_actual).setUnlocalizedName("crystalSatyr");
+    	   krakenScale = new ItemDrop(ID.krakenScale_actual).setUnlocalizedName("krakenScale");
+    	   crystalNether = new ItemDrop(ID.crystalNether_actual).setUnlocalizedName("crystalNether");
+    	   ingotUltimite = new ItemBasic(ID.ingotUltimite_actual).setUnlocalizedName("ingotUltimite");
+    	   krakenSoul  = new ItemDrop(ID.krakenSoul_actual).setUnlocalizedName("krakenSoul");
+    	   phoenixSoul  = new ItemDrop(ID.phoenixSoul_actual).setUnlocalizedName("phoenixSoul");
+    	   ash = new ItemDrop(ID.ash_actual).setUnlocalizedName("ash");
+    	   unicornHorn = new ItemShiny(ID.unicornHorn_actual).setUnlocalizedName("unicornHorn");
+    	   ingotUnicornite = new ItemBasic(ID.ingotUnicornite_actual).setUnlocalizedName("ingotUnicornite");
+    	   activator = new ItemActivator(ID.activator_actual).setUnlocalizedName("activator");
     	   
     	   //
     	   
-    	   weaponsForge = new BlockForge(3056).setLightValue(1F).setHardness(5.0F).setUnlocalizedName("weaponsForge");
+    	   candy = new ItemEdible(ID.candy_actual, 1, false).setUnlocalizedName("candy");
+    	   
     	   //
-    	   oreUltimite = new BlockOreUltimite(3057, Material.rock).setHardness(5F).setUnlocalizedName("oreUltimite");
-    	   oreUnicornite = new BlockOreUnicornite(3059, Material.rock).setHardness(5F).setUnlocalizedName("oreUnicornite");
+    	   
+    	   weaponsForge = new BlockForge(ID.weaponsForge_actual).setLightValue(1F).setHardness(5.0F).setUnlocalizedName("weaponsForge");
+    	   activatorFire = new BlockActivatorFire(ID.activatorFire_actual);
     	   //
-    	   candyCane = new BlockCandy(3058, Material.ice).setHardness(2F).setUnlocalizedName("candyCane");
+    	   oreUltimite = new BlockOreUltimite(ID.oreUltimite_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreUltimite");
+    	   oreUnicornite = new BlockOreUnicornite(ID.oreUnicornite_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreUnicornite");
+    	   //
+    	   candyCane = new BlockCandy(ID.candyCane_actual, Material.ice).setHardness(2F).setUnlocalizedName("candyCane");
+    	   //
+    	   portalOceania = new BlockPortalOceania(ID.portalOceania_actual);
     	   
     	   //
     	   
@@ -297,6 +330,8 @@ public class UbahRPG
     	   LanguageRegistry.addName(uniChestplate, "Unicorn Chestplate");
     	   LanguageRegistry.addName(uniLeggings, "Unicorn Pants");
     	   LanguageRegistry.addName(uniBoots, "Unicorn Boots");
+    	   //
+    	   LanguageRegistry.addName(airMask, "Air Mask");
     	   
     	   //
     	   
@@ -339,6 +374,8 @@ public class UbahRPG
     	   LanguageRegistry.addName(ash, "Phoenix Ashes");
     	   LanguageRegistry.addName(unicornHorn, "Unicorn Horn");
     	   LanguageRegistry.addName(ingotUnicornite, "Unicornite Ingot");
+    	   LanguageRegistry.addName(candy, "Piece of Candy");
+    	   LanguageRegistry.addName(activator, "Portal Activator");
     	   
     	   //
     	   
@@ -385,6 +422,21 @@ public class UbahRPG
     	   //
     	   this.addAchievementName("Orcskin", "ORCSKIN!?");
     	   this.addAchievementDesc("Orcskin", "Best alternative to leather ever!");
+    	   //
+    	   this.addAchievementName("Unicornite", "Unicornite!");
+    	   this.addAchievementDesc("Unicornite", "IT'S PINK METAL!");
+    	   //
+    	   this.addAchievementName("ArmorUnicornite", "Unicornite Armor");
+    	   this.addAchievementDesc("ArmorUnicornite", "OMG PINK ARMOR!");
+    	   //
+    	   this.addAchievementName("PinkSword", "PINK. WEAPONRY.");
+    	   this.addAchievementDesc("PinkSword", "The \u00A7f\u00A7lUnicorn Sword!");
+    	   //
+    	   this.addAchievementName("Customization", "Customization");
+    	   this.addAchievementDesc("Customization", "Just some color.");
+    	   //
+    	   this.addAchievementName("SwordOfTheSea", "Sword of the Sea");
+    	   this.addAchievementDesc("SwordOfTheSea", "The \u00A71\u00A7lKraken Sword!");
     	   
     	   //
     	   
@@ -402,6 +454,18 @@ public class UbahRPG
     	   GameRegistry.registerBlock(oreUltimite, "oreUltimite");
     	   GameRegistry.registerBlock(oreUnicornite, "oreUnicornite");
     	   GameRegistry.registerBlock(candyCane, "candyCane");
+    	   GameRegistry.registerBlock(activatorFire, "activatorFire");
+    	   GameRegistry.registerBlock(portalOceania, "portalOceania");
+    	   
+    	   //
+    	   
+    	   if(addToDefault)
+    	   {
+    		   if(biomeOceaniaGen)
+    		   {
+    			   GameRegistry.addBiome(oceaniaBiome);
+    		   }
+    	   }
     	   
     	   //
     	   
@@ -508,6 +572,13 @@ public class UbahRPG
                'O', ingotUnicornite
         });
     	   //
+    	   GameRegistry.addRecipe(new ItemStack(airMask), new Object[]{
+               "III",
+               "IDI",
+               "IGI",
+               'I', Item.ingotIron, 'D', new ItemStack(Item.dyePowder, 1, 14), 'G', Block.thinGlass
+        });
+    	   //
     	   GameRegistry.addRecipe(new ItemStack(pickUltimite), new Object[]{
                "UUU",
                " S ",
@@ -589,17 +660,28 @@ public class UbahRPG
         });
     	   //
     	   URPG_ultimite = new Achievement(345, "Ultimite", -2, 0, ingotUltimite, null).registerAchievement();
+    	   //
     	   URPG_advancedCrafting = new Achievement(346, "AdvancedCrafting", 0, 0, weaponsForge, URPG_ultimite).registerAchievement();
-    	   URPG_elfsForge = new Achievement(341, "ElfsForge", 0, 2, swordCandycane, URPG_advancedCrafting).registerAchievement();
-           URPG_bladeOfHeat = new Achievement(342, "BladeOfHeat", 2, 0, swordMagmaBlaze, URPG_advancedCrafting).registerAchievement();
-           URPG_aSnakesEqual = new Achievement(343, "ASnakesEqual", 0, 4, swordBasiliskFear, URPG_advancedCrafting).registerAchievement();
-           URPG_vampirialWeaponry = new Achievement(344, "VampirialWeaponry", 4, 0, swordVampirialVanquish, URPG_advancedCrafting).registerAchievement();
-           URPG_ultiblade = new Achievement(347, "Ultiblade", 2, 2, swordUltimite, URPG_advancedCrafting).registerAchievement();
-           URPG_toolery = new Achievement(348, "Toolery", -2, 4, pickUltimite, URPG_ultimite).registerAchievement();
-           URPG_orcskin = new Achievement(350, "Orcskin", -2, -3, orcSkin, null).registerAchievement();
-           URPG_armorOrcskin = new Achievement(349, "ArmorOrcskin", -4, 2, orcskinHelmet, URPG_orcskin).registerAchievement();
+    	   //
+    	   URPG_elfsForge = new Achievement(341, "ElfsForge", 2, 0, swordCandycane, URPG_advancedCrafting).registerAchievement();
+           URPG_bladeOfHeat = new Achievement(342, "BladeOfHeat", 3, 0, swordMagmaBlaze, URPG_advancedCrafting).registerAchievement();
+           URPG_aSnakesEqual = new Achievement(343, "ASnakesEqual", 4, 0, swordBasiliskFear, URPG_advancedCrafting).registerAchievement();
+           URPG_vampirialWeaponry = new Achievement(344, "VampirialWeaponry", 5, 0, swordVampirialVanquish, URPG_advancedCrafting).registerAchievement();
+           URPG_swordOfTheSea = new Achievement(353, "SwordOfTheSea", 6, 0, swordKraken, URPG_advancedCrafting).registerAchievement();
+           URPG_pinkSword = new Achievement(354, "PinkSword", 7, 0, swordUnicorn, URPG_advancedCrafting).registerAchievement();
+           URPG_customization = new Achievement(355, "Customization", 8, 0, swordUbah, URPG_advancedCrafting).registerAchievement();
+           //
+           URPG_ultiblade = new Achievement(347, "Ultiblade", -4, 0, swordUltimite, URPG_advancedCrafting).setSpecial().registerAchievement();
+           //
+           URPG_toolery = new Achievement(348, "Toolery", -2, 2, pickUltimite, null).registerAchievement();
+           //
+           URPG_orcskin = new Achievement(350, "Orcskin", -2, -2, orcSkin, null).registerAchievement();
+           URPG_armorOrcskin = new Achievement(349, "ArmorOrcskin", -1, -2, orcskinHelmet, URPG_orcskin).registerAchievement();
+           //
+           URPG_unicornite = new Achievement(351, "Unicornite", -2, -3, ingotUnicornite, null).registerAchievement();
+           URPG_armorUnicornite = new Achievement(352, "ArmorUnicornite", -1, -3, uniHelmet, URPG_unicornite).registerAchievement();
            
-           AchievementUbahRPG = new AchievementPage("\u00A76\u00A7lUbah\u00A7a\u00A7lRPG", URPG_ultimite, URPG_advancedCrafting, URPG_elfsForge, URPG_bladeOfHeat, URPG_aSnakesEqual, URPG_vampirialWeaponry, URPG_toolery, URPG_ultiblade, URPG_armorOrcskin, URPG_orcskin);
+           AchievementUbahRPG = new AchievementPage("\u00A76\u00A7lUbah\u00A7a\u00A7lRPG", URPG_ultimite, URPG_advancedCrafting, URPG_elfsForge, URPG_bladeOfHeat, URPG_aSnakesEqual, URPG_vampirialWeaponry, URPG_toolery, URPG_ultiblade, URPG_armorOrcskin, URPG_orcskin, URPG_unicornite, URPG_pinkSword, URPG_armorUnicornite, URPG_swordOfTheSea, URPG_customization);
     	   AchievementPage.registerAchievementPage(AchievementUbahRPG);
     	   
     	   NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
