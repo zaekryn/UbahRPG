@@ -61,7 +61,7 @@ public class ArmorAirMask extends ItemArmor
     
     {
     	player.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, 20, 0));
-    	player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 20, 0));
+    	player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 20 * 30, 0));
     }
    
 }

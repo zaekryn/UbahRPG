@@ -37,7 +37,7 @@ public class ItemSwordBasilisk extends ItemSwordBasic
     public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
     {
       itemstack.damageItem(1, entityliving1);
-      entityliving.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 5, 1));
+      entityliving.addPotionEffect(new PotionEffect(Potion.poison.id, 20 * 3, 1));
       return true;
     }
 }

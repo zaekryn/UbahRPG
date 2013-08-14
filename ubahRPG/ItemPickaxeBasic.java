@@ -9,7 +9,7 @@ public class ItemPickaxeBasic extends ItemPickaxe{
 	 public ItemPickaxeBasic(int itemID, EnumToolMaterial toolMaterial)
 	 {
 	  super(itemID, toolMaterial);
-	  this.setCreativeTab(UbahRPG.tabTools);
+	  this.setCreativeTab(UbahRPG.tabGeneral);
 	 }
 	 
 	 public void registerIcons(IconRegister par1IconRegister)

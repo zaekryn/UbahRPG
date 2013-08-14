@@ -38,7 +38,7 @@ public class ItemSwordKraken extends ItemSwordBasic
     {
       itemstack.damageItem(1, entityliving1);
       entityliving.addPotionEffect(new PotionEffect(Potion.blindness.id, 20 * 5, 1));
-      entityliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 5, 1));
+      entityliving.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 20 * 1, 1));
       return true;
     }
 }

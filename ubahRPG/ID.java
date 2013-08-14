@@ -1,7 +1,10 @@
 package ubahRPG;
 
 public class ID {
-	//Armor
+//Last Used Item: 6509
+//Last Used Block: 3063
+	
+//Armor
 public static int orcskinHelmet_actual;
 public static final int orcskinHelmet_default = 6410;
 public static int orcskinChestplate_actual;
@@ -51,6 +54,71 @@ public static int swordUbah_actual;
 public static final int swordUbah_default = 6455;
 public static int swordUnicorn_actual;
 public static final int swordUnicorn_default = 6456;
+public static int swordAxeGhostly_actual;
+public static final int swordAxeGhostly_default = 6464;
+public static int swordAxeUnicorn_actual;
+public static final int swordAxeUnicorn_default = 6465;
+//
+public static int swordSpearMultisoul_actual;
+public static final int swordSpearMultisoul_default = 6479;
+public static int swordScytheCandycane_actual;
+public static final int swordScytheCandycane_default = 6480;
+public static int swordScytheSatyr_actual;
+public static final int swordScytheSatyr_default = 6481;
+public static int swordScytheNether_actual;
+public static final int swordScytheNether_default = 6482;
+public static int swordSickeningSickle_actual;
+public static final int swordSickeningSickle_default = 6483;
+public static int swordDaggerUnicorn_actual;
+public static final int swordDaggerUnicorn_default = 6484;
+public static int swordExcalibur_actual;
+public static final int swordExcalibur_default = 6485;
+public static int swordGhost_actual;
+public static final int swordGhost_default = 6486;
+public static int swordOranian_actual;
+public static final int swordOranian_default = 6487;
+public static int swordUnicornPitchfork_actual;
+public static final int swordUnicornPitchfork_default = 6488;
+public static int swordDaggerUltimite_actual;
+public static final int swordDaggerUltimite_default = 6489;
+public static int swordDaggerBasilisk_actual;
+public static final int swordDaggerBasilisk_default = 6490;
+public static int swordGlownFury_actual;
+public static final int swordGlownFury_default = 6491;
+public static int swordFlailDiamond_actual;
+public static final int swordFlailDiamond_default = 6492;
+public static int swordFlailIron_actual;
+public static final int swordFlailIron_default = 6493;
+public static int swordPhoenixone_actual;
+public static final int swordPhoenixone_default = 6494;
+public static int swordKrakenone_actual;
+public static final int swordKrakenone_default = 6495;
+public static int swordImpone_actual;
+public static final int swordImpone_default = 6496;
+public static int swordLightning_actual;
+public static final int swordLightning_default = 6497;
+public static int swordLegend_actual;
+public static final int swordLegend_default = 6498;
+public static int swordShining_actual;
+public static final int swordShining_default = 6499;
+public static int swordZombie_actual;
+public static final int swordZombie_default = 6500;
+public static int swordDirt_actual;
+public static final int swordDirt_default = 6501;
+public static int swordIce_actual;
+public static final int swordIce_default = 6502;
+public static int swordWeird_actual;
+public static final int swordWeird_default = 6503;
+public static int swordNatura_actual;
+public static final int swordNatura_default = 6504;
+public static int swordDim_actual;
+public static final int swordDim_default = 6505;
+public static int swordEnder_actual;
+public static final int swordEnder_default = 6506;
+public static int swordGlass_actual;
+public static final int swordGlass_default = 6507;
+public static int swordCH_actual;
+public static final int swordCH_default = 6509;
 //Bows
 public static int bowGhost_actual;
 public static final int bowGhost_default = 6449;
@@ -97,6 +165,35 @@ public static int ingotUnicornite_actual;
 public static final int ingotUnicornite_default = 6458;
 public static int activator_actual;
 public static final int activator_default = 6459;
+//
+public static int rodGlowing_actual;
+public static final int rodGlowing_default = 6466;
+public static int crystalGhost_actual;
+public static final int crystalGhost_default = 6467;
+public static int digiron_actual;
+public static final int digiron_default = 6468;
+public static int phoenixone_actual;
+public static final int phoenixone_default = 6469;
+public static int krakenone_actual;
+public static final int krakenone_default = 6470;
+public static int impone_actual;
+public static final int impone_default = 6471;
+public static int electricite_actual;
+public static final int electricite_default = 6472;
+public static int ingotLegend_actual;
+public static final int ingotLegend_default = 6473;
+public static int crystalElectric_actual;
+public static final int crystalElectric_default = 6474;
+public static int crystalRotten_actual;
+public static final int crystalRotten_default = 6475;
+public static int shardWeird_actual;
+public static final int shardWeird_default = 6476;
+public static int ingotNatura_actual;
+public static final int ingotNatura_default = 6477;
+public static int crystalDim_actual;
+public static final int crystalDim_default = 6478;
+public static int soulmite_actual;
+public static final int soulmite_default = 6508;
 //Food
 public static int candy_actual;
 public static final int candy_default = 6443;
@@ -110,6 +207,10 @@ public static int oreUltimite_actual;
 public static final int oreUltimite_default = 3057;
 public static int oreUnicornite_actual;
 public static final int oreUnicornite_default = 3059;
+public static int oreLegend_actual;
+public static final int oreLegend_default = 3062;
+public static int oreNatura_actual;
+public static final int oreNatura_default = 3063;
 //Terrain Blocks
 public static int candyCane_actual;
 public static final int candyCane_default = 3058;

@@ -18,6 +18,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.item.crafting.RecipesArmor;
 import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.stats.Achievement;
@@ -59,11 +60,46 @@ public class UbahRPG
        
        private GuiHandler guiHandler = new GuiHandler();
        
-       static EnumToolMaterial magmablaze = EnumHelper.addToolMaterial("magmablaze", 1, 250, 2F, 2, 30);
+       public static int scythe = 250;
+       public static int durfault = 300;
+       
+       static EnumToolMaterial magmablaze = EnumHelper.addToolMaterial("magmablaze", 1, 250, 2F, 26, 30);
        static EnumToolMaterial candycane = EnumHelper.addToolMaterial("candycane", 1, 200, 2F, 0, 30);
-       static EnumToolMaterial basilisk = EnumHelper.addToolMaterial("basilisk", 1, 250, 2F, 1, 30);
-       static EnumToolMaterial vanquish = EnumHelper.addToolMaterial("vanquish", 1, 500, 2F, 4, 30);
-       static EnumToolMaterial kraken = EnumHelper.addToolMaterial("kraken", 1, 500, 2F, 3, 30);
+       static EnumToolMaterial basilisk = EnumHelper.addToolMaterial("basilisk", 1, 250, 2F, 26, 30);
+       static EnumToolMaterial vanquish = EnumHelper.addToolMaterial("vanquish", 1, 500, 2F, 26, 30);
+       static EnumToolMaterial kraken = EnumHelper.addToolMaterial("kraken", 1, 500, 2F, 8, 30);
+       static EnumToolMaterial axeGhostly = EnumHelper.addToolMaterial("axeGhostly", 1, 200, 2F, 6, 30);
+       static EnumToolMaterial axeUnicorn = EnumHelper.addToolMaterial("axeUnicorn", 1, 200, 2F, 7, 30);
+       //
+       static EnumToolMaterial multisoul = EnumHelper.addToolMaterial("multisoul", 1, 300, 2F, 36, 30);
+       static EnumToolMaterial scytheCandy = EnumHelper.addToolMaterial("scytheCandy", 1, scythe, 2F, 4, 30);
+       static EnumToolMaterial scytheSatyr = EnumHelper.addToolMaterial("scytheSatyr", 1, scythe, 2F, 6, 30);
+       static EnumToolMaterial scytheNether = EnumHelper.addToolMaterial("scytheNether", 1, scythe, 2F, 8, 30);
+       static EnumToolMaterial sick = EnumHelper.addToolMaterial("sick", 1, durfault, 2F, 2, 30);
+       static EnumToolMaterial daggerUnicorn = EnumHelper.addToolMaterial("daggerUnicorn", 1, durfault, 2F, 1, 30);
+       static EnumToolMaterial excal = EnumHelper.addToolMaterial("excal", 1, 800, 2F, 56, 30);
+       static EnumToolMaterial ghost = EnumHelper.addToolMaterial("ghost", 1, durfault, 2F, 9, 30);
+       static EnumToolMaterial oranian = EnumHelper.addToolMaterial("oranian", 1, durfault, 2F, 5, 30);
+       static EnumToolMaterial pitchUnicorn = EnumHelper.addToolMaterial("pitchUnicorn", 1, durfault, 2F, 6, 30);
+       static EnumToolMaterial daggerUltimite = EnumHelper.addToolMaterial("daggerUltimite", 1, durfault, 2F, 4, 30);
+       static EnumToolMaterial daggerBasilisk = EnumHelper.addToolMaterial("daggerBasilisk", 1, durfault, 2F, 0, 30);
+       static EnumToolMaterial fury = EnumHelper.addToolMaterial("fury", 1, durfault, 2F, 26, 30);
+       static EnumToolMaterial flailDiamond = EnumHelper.addToolMaterial("flailDiamond", 1, durfault, 2F, 2, 30);
+       static EnumToolMaterial flailIron = EnumHelper.addToolMaterial("flailIron", 1, durfault, 2F, 1, 30);
+       static EnumToolMaterial phoenixo = EnumHelper.addToolMaterial("phoenixo", 1, 500, 2F, 51, 30);
+       static EnumToolMaterial krakeno = EnumHelper.addToolMaterial("krakeno", 1, 500, 2F, 46, 30);
+       static EnumToolMaterial impo = EnumHelper.addToolMaterial("impo", 1, 500, 2F, 41, 30);
+       static EnumToolMaterial lightning = EnumHelper.addToolMaterial("lightning", 1, durfault, 2F, 26, 30);
+       static EnumToolMaterial legend = EnumHelper.addToolMaterial("legend", 1, durfault, 2F, 21, 30);
+       static EnumToolMaterial shining = EnumHelper.addToolMaterial("shining", 1, durfault, 2F, 24, 30);
+       static EnumToolMaterial zombie = EnumHelper.addToolMaterial("zombie", 1, durfault, 2F, 5, 30);
+       static EnumToolMaterial dirt = EnumHelper.addToolMaterial("dirt", 1, 10, 2F, 0 - 104, 0);
+       static EnumToolMaterial ice = EnumHelper.addToolMaterial("ice", 1, 50, 2F, 2, 30);
+       static EnumToolMaterial weird = EnumHelper.addToolMaterial("weird", 1, durfault, 2F, 3, 30);
+       static EnumToolMaterial natura = EnumHelper.addToolMaterial("natura", 1, durfault, 2F, 6, 30);
+       static EnumToolMaterial dim = EnumHelper.addToolMaterial("dim", 1, durfault, 2F, 16, 30);
+       static EnumToolMaterial ender = EnumHelper.addToolMaterial("ender", 1, 200, 2F, 2, 30);
+       static EnumToolMaterial glass = EnumHelper.addToolMaterial("glass", 1, 25, 2F, 2, 30);
        //
        static EnumToolMaterial ultimite = EnumHelper.addToolMaterial("ultimite", 3, 300, 7F, 0, 30);
        static EnumToolMaterial ultimiteWeapon = EnumHelper.addToolMaterial("ultimiteWeapon", 1, 300, 2F, 46, 30);
@@ -85,15 +121,7 @@ public class UbahRPG
        {
     	   public ItemStack getIconItemStack()
     	   {
-    		   return new ItemStack(swordKraken);
-    	   }
-       };
-       //
-       public static CreativeTabs tabTools = new CreativeTabs("ubgms_rpg_tabTools")
-       {
-    	   public ItemStack getIconItemStack()
-    	   {
-    		   return new ItemStack(pickUltimite);
+    		   return new ItemStack(swordUltimite);
     	   }
        };
        //
@@ -104,12 +132,13 @@ public class UbahRPG
     		   return new ItemStack(camoHelmet);
     	   }
        };
+
        
        public static AchievementPage AchievementUbahRPG;
        
        public static int OceaniaID = 64;
        public static int FantasmaID = 65;
-       public static int OtherDimID = 66;
+       public static int UnknownID = 66;
        
        
        public static BiomeGenBase oceaniaBiome;
@@ -142,6 +171,42 @@ public class UbahRPG
        public static Item swordKraken;
        public static Item swordUbah;
        public static Item swordUnicorn;
+       public static Item swordAxeGhostly;
+       public static Item swordAxeUnicorn;
+       //
+       public static Item swordSpearMultisoul;
+       public static Item swordScytheCandycane;
+       public static Item swordScytheSatyr;
+       public static Item swordScytheNether;
+       public static Item swordSickeningSickle;
+       public static Item swordDaggerUnicorn;
+       public static Item swordExcalibur;
+       public static Item swordGhost;
+       public static Item swordOranian;
+       public static Item swordUnicornPitchfork;
+       public static Item swordDaggerUltimite;
+       public static Item swordDaggerBasilisk;
+       public static Item swordGlownFury;
+       public static Item swordFlailDiamond;
+       public static Item swordFlailIron;
+       public static Item swordPhoenixone;
+       public static Item swordKrakenone;
+       public static Item swordImpone;
+       public static Item swordLightning;
+       public static Item swordLegend;
+       public static Item swordShining;
+       public static Item swordZombie;
+       public static Item swordDirt;
+       public static Item swordSkeleton;
+       public static Item swordIce;
+       public static Item swordWeird;
+       public static Item swordNatura;
+       public static Item swordDim;
+       public static Item swordEnder;
+       public static Item swordGlass;
+       //Colin Harrison's Sword
+       public static Item swordCH;
+       
        //Bows
        public static Item bowGhost;
        public static Item bowPhoenix;
@@ -166,6 +231,21 @@ public class UbahRPG
        public static Item phoenixSoul;
        public static Item ash;
        public static Item unicornHorn;
+       public static Item rodGlowing;
+       public static Item crystalGhost;
+       public static Item digiron;
+       public static Item phoenixone;
+       public static Item krakenone;
+       public static Item impone;
+       public static Item electricite;
+       public static Item ingotLegend;
+       public static Item crystalElectric;
+       public static Item crystalRotten;
+       public static Item shardWeird;
+       public static Item ingotNatura;
+       public static Item crystalDim;
+       public static Item soulmite;
+       
        //
        public static Item book0;
        public static Item activator;
@@ -175,6 +255,8 @@ public class UbahRPG
        //
        public static Block oreUltimite;
        public static Block oreUnicornite;
+       public static Block oreLegend;
+       public static Block oreNatura;
        //
        public static Block candyCane;
        public static Block bedSand;
@@ -227,9 +309,11 @@ public class UbahRPG
     	   
     	   EntityRegistry.registerModEntity(EntityElf.class, "Elf", 1, this, 80, 1, true);
     	   EntityRegistry.registerModEntity(EntityOrc.class, "Orc", 2, this, 80, 1, true);
+    	   EntityRegistry.registerModEntity(EntityUnicorn.class, "Unicorn", 3, this, 80, 1, true);
     	   //
     	   EntityEgg(EntityElf.class, 0x00ff00, 0xdc143c);
     	   EntityEgg(EntityOrc.class, 0xC7F22C, 0x778A32);
+    	   EntityEgg(EntityUnicorn.class, 0xFCADFF, 0xFFFFFF);
     	   //
     	   GameRegistry.registerWorldGenerator(new UbahWorldGeneration());
     	   //
@@ -237,6 +321,7 @@ public class UbahRPG
     	   //
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Elf.name", "Elf");
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Orc.name", "Orc");
+    	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Unicorn.name", "Unicorn");
     	   
     	   orcskinHelmet = new ArmorOrcSkin(ID.orcskinHelmet_actual, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
     	   orcskinChestplate = new ArmorOrcSkin(ID.orcskinChestplate_actual, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
@@ -269,6 +354,39 @@ public class UbahRPG
     	   swordKraken = new ItemSwordKraken(ID.swordKraken_actual, kraken).setUnlocalizedName("swordKraken");
     	   swordUbah = new ItemSwordBasic(ID.swordUbah_actual, EnumToolMaterial.IRON).setUnlocalizedName("swordUbah");
     	   swordUnicorn = new ItemSwordUnicorn(ID.swordUnicorn_actual, EnumToolMaterial.STONE).setUnlocalizedName("swordUnicorn");
+    	   swordAxeGhostly = new ItemAxeGhostly(ID.swordAxeGhostly_actual, axeGhostly).setUnlocalizedName("swordAxeGhostly");
+    	   swordAxeUnicorn = new ItemAxeUnicorn(ID.swordAxeUnicorn_actual, axeUnicorn).setUnlocalizedName("swordAxeUnicorn");
+    	   //
+    	   swordSpearMultisoul = new ItemSwordBasic(ID.swordSpearMultisoul_actual, multisoul).setUnlocalizedName("swordSpearMultisoul");
+    	   swordScytheCandycane = new ItemSwordBasic(ID.swordScytheCandycane_actual, scytheCandy).setUnlocalizedName("swordScytheCandycane");
+    	   swordScytheSatyr = new ItemSwordSick(ID.swordScytheSatyr_actual, scytheSatyr).setUnlocalizedName("swordScytheSatyr");
+    	   swordScytheNether = new ItemSwordBasic(ID.swordScytheNether_actual, scytheNether).setUnlocalizedName("swordScytheNether");
+    	   swordSickeningSickle = new ItemSick(ID.swordSickeningSickle_actual, sick).setUnlocalizedName("swordSickeningSickle");
+    	   swordDaggerUnicorn = new ItemSwordBasic(ID.swordDaggerUnicorn_actual, daggerUnicorn).setUnlocalizedName("swordDaggerUnicorn");
+    	   swordExcalibur = new ItemSwordExcal(ID.swordExcalibur_actual, excal).setUnlocalizedName("swordExcalibur");
+    	   swordGhost = new ItemSwordGhost(ID.swordGhost_actual, ghost).setUnlocalizedName("swordGhost");
+    	   swordOranian = new ItemSwordBasic(ID.swordOranian_actual, oranian).setUnlocalizedName("swordOranian");
+    	   swordUnicornPitchfork = new ItemSwordBasic(ID.swordUnicornPitchfork_actual, pitchUnicorn).setUnlocalizedName("swordUnicornPitchfork");
+    	   swordDaggerUltimite = new ItemSwordBasic(ID.swordDaggerUltimite_actual, daggerUltimite).setUnlocalizedName("swordDaggerUltimite");
+    	   swordDaggerBasilisk = new ItemSwordBasic(ID.swordDaggerBasilisk_actual, daggerBasilisk).setUnlocalizedName("swordDaggerBasilisk");
+    	   swordGlownFury = new ItemSwordBasic(ID.swordGlownFury_actual, fury).setUnlocalizedName("swordGlownFury");
+    	   swordFlailDiamond = new ItemSwordFlail(ID.swordFlailDiamond_actual, flailDiamond).setUnlocalizedName("swordFlailDiamond");
+    	   swordFlailIron = new ItemSwordFlail(ID.swordFlailIron_actual, flailIron).setUnlocalizedName("swordFlailIron");
+    	   swordPhoenixone = new ItemSwordPhoenixone(ID.swordPhoenixone_actual, phoenixo).setUnlocalizedName("swordPhoenixone");
+    	   swordKrakenone = new ItemSwordKrakenone(ID.swordKrakenone_actual, krakeno).setUnlocalizedName("swordKrakenone");
+    	   swordImpone = new ItemSwordImpone(ID.swordImpone_actual, impo).setUnlocalizedName("swordImpone");
+    	   swordLightning = new ItemSwordLightning(ID.swordLightning_actual, lightning).setUnlocalizedName("swordLightning");
+    	   swordLegend = new ItemSwordBasic(ID.swordLegend_actual, legend).setUnlocalizedName("swordLegend");
+    	   swordShining = new ItemSwordBasic(ID.swordShining_actual, shining).setUnlocalizedName("swordShining");
+    	   swordZombie = new ItemSwordZombie(ID.swordZombie_actual, zombie).setUnlocalizedName("swordZombie");
+    	   swordDirt = new ItemSwordDirt(ID.swordDirt_actual, dirt).setUnlocalizedName("swordDirt");
+    	   swordIce = new ItemSwordBasic(ID.swordIce_actual, ice).setUnlocalizedName("swordIce");
+    	   swordWeird = new ItemSwordBasic(ID.swordWeird_actual, weird).setUnlocalizedName("swordWeird");
+    	   swordNatura = new ItemSwordBasic(ID.swordNatura_actual, natura).setUnlocalizedName("swordNatura");
+    	   swordDim = new ItemSwordBasic(ID.swordDim_actual, dim).setUnlocalizedName("swordDim");
+    	   swordEnder = new ItemSwordEnder(ID.swordEnder_actual, ender).setUnlocalizedName("swordEnder");
+    	   swordGlass = new ItemSwordBasic(ID.swordGlass_actual, glass).setUnlocalizedName("swordGlass");
+    	   swordCH = new ItemSwordShiny(ID.swordCH_actual, EnumToolMaterial.EMERALD).setUnlocalizedName("swordCH");
     	   
     	   //
     	   
@@ -278,7 +396,7 @@ public class UbahRPG
     	   //
     	   
     	   basiliskFang = new ItemDrop(ID.basiliskFang_actual).setUnlocalizedName("basiliskFang");
-    	   shardPeppermint = new ItemDrop(ID.shardPeppermint_actual).setUnlocalizedName("shardPeppermint");
+    	   shardPeppermint = new ItemEdible(ID.shardPeppermint_actual, 1, false).setUnlocalizedName("shardPeppermint");
     	   crystalCandycane = new ItemDrop(ID.crystalCandycane_actual).setUnlocalizedName("crystalCandycane");
     	   orcSkin = new ItemDrop(ID.orcSkin_actual).setUnlocalizedName("orcSkin");
     	   shardDarkness = new ItemDrop(ID.shardDarkness_actual).setUnlocalizedName("shardDarkness");
@@ -297,6 +415,20 @@ public class UbahRPG
     	   unicornHorn = new ItemShiny(ID.unicornHorn_actual).setUnlocalizedName("unicornHorn");
     	   ingotUnicornite = new ItemBasic(ID.ingotUnicornite_actual).setUnlocalizedName("ingotUnicornite");
     	   activator = new ItemActivator(ID.activator_actual).setUnlocalizedName("activator");
+    	   rodGlowing = new ItemBasic(ID.rodGlowing_actual).setUnlocalizedName("rodGlowing");
+    	   crystalGhost = new ItemDrop(ID.crystalGhost_actual).setUnlocalizedName("crystalGhost");
+    	   digiron = new ItemDrop(ID.digiron_actual).setUnlocalizedName("digiron");
+    	   phoenixone = new ItemDrop(ID.phoenixone_actual).setUnlocalizedName("phoenixone");
+    	   krakenone = new ItemDrop(ID.krakenone_actual).setUnlocalizedName("krakenone");
+    	   impone = new ItemDrop(ID.impone_actual).setUnlocalizedName("impone");
+    	   electricite = new ItemDrop(ID.electricite_actual).setUnlocalizedName("electricite");
+    	   ingotLegend = new ItemDrop(ID.ingotLegend_actual).setUnlocalizedName("ingotLegend");
+    	   crystalElectric = new ItemDrop(ID.crystalElectric_actual).setUnlocalizedName("crystalElectric");
+    	   crystalRotten = new ItemDrop(ID.crystalRotten_actual).setUnlocalizedName("crystalRotten");
+    	   shardWeird = new ItemDrop(ID.shardWeird_actual).setUnlocalizedName("shardWeird");
+    	   ingotNatura = new ItemDrop(ID.ingotNatura_actual).setUnlocalizedName("ingotNatura");
+    	   crystalDim = new ItemDrop(ID.crystalDim_actual).setUnlocalizedName("crystalDim");
+    	   soulmite = new ItemShiny(ID.soulmite_actual).setUnlocalizedName("soulmite");
     	   
     	   //
     	   
@@ -309,6 +441,8 @@ public class UbahRPG
     	   //
     	   oreUltimite = new BlockOreUltimite(ID.oreUltimite_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreUltimite");
     	   oreUnicornite = new BlockOreUnicornite(ID.oreUnicornite_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreUnicornite");
+    	   oreLegend = new BlockBasic(ID.oreLegend_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreLegend");
+    	   oreNatura = new BlockBasic(ID.oreNatura_actual, Material.rock).setHardness(5F).setUnlocalizedName("oreNatura");
     	   //
     	   candyCane = new BlockCandy(ID.candyCane_actual, Material.ice).setHardness(2F).setUnlocalizedName("candyCane");
     	   //
@@ -345,8 +479,41 @@ public class UbahRPG
     	   LanguageRegistry.addName(swordVampirialVanquish, "\u00A75\u00A7lThe Vampirial Vanquish");
     	   LanguageRegistry.addName(swordUltimite, "\u00A7b\u00A7lThe UltiBlade");
     	   LanguageRegistry.addName(swordKraken, "\u00A71\u00A7lKraken Sword");
-    	   LanguageRegistry.addName(swordUbah, "\u00A76Ubah\u00A7aSword");
-    	   LanguageRegistry.addName(swordUnicorn, "\u00A7lUnicorn Sword");
+    	   LanguageRegistry.addName(swordUbah, "\u00A7l\u00A76Ubah\u00A7aSword");
+    	   LanguageRegistry.addName(swordUnicorn, "\u00A7d\u00A7lUnicorn Sword");
+    	   LanguageRegistry.addName(swordAxeGhostly, "\u00A7lGhostly Battleaxe");
+    	   LanguageRegistry.addName(swordAxeUnicorn, "\u00A7lUnicorn Battleaxe");
+    	   //
+    	   LanguageRegistry.addName(swordSpearMultisoul, "\u00A7lMultisoul Spear");
+    	   LanguageRegistry.addName(swordScytheCandycane, "\u00A7lCandy Cane Scythe");
+    	   LanguageRegistry.addName(swordScytheSatyr, "\u00A7lSatyr Scythe");
+    	   LanguageRegistry.addName(swordScytheNether, "\u00A7lNether Scythe");
+    	   LanguageRegistry.addName(swordSickeningSickle, "\u00A7lSickening Sickle");
+    	   LanguageRegistry.addName(swordDaggerUnicorn, "\u00A7lUnicorn Dagger");
+    	   LanguageRegistry.addName(swordExcalibur, "\u00A7e\u00A7lExcalibur");
+    	   LanguageRegistry.addName(swordGhost, "\u00A7lGhost Sword");
+    	   LanguageRegistry.addName(swordOranian, "\u00A7lDiagiron Sword");
+    	   LanguageRegistry.addName(swordUnicornPitchfork, "\u00A7lUnicorn Pitchfork");
+    	   LanguageRegistry.addName(swordDaggerUltimite, "\u00A7lUltimite Dagger");
+    	   LanguageRegistry.addName(swordDaggerBasilisk, "\u00A7lBasilisk Dagger");
+    	   LanguageRegistry.addName(swordGlownFury, "\u00A7lGlowing Fury");
+    	   LanguageRegistry.addName(swordFlailDiamond, "\u00A7lDiamond Flail");
+    	   LanguageRegistry.addName(swordFlailIron, "\u00A7lIron Flail");
+    	   LanguageRegistry.addName(swordPhoenixone, "\u00A76\u00A7lPhoenixone Sword");
+    	   LanguageRegistry.addName(swordKrakenone, "\u00A71\u00A7lKrakenone Sword");
+    	   LanguageRegistry.addName(swordImpone, "\u00A7a\u00A7lImpone Sword");
+    	   LanguageRegistry.addName(swordLightning, "\u00A7lLightning Sword");
+    	   LanguageRegistry.addName(swordLegend, "\u00A7lLegend Sword");
+    	   LanguageRegistry.addName(swordShining, "\u00A7lThe \u00A7e\u00A7lShining \u00A75\u00A7lShadow");
+    	   LanguageRegistry.addName(swordZombie, "\u00A7lZombie Sword");
+    	   LanguageRegistry.addName(swordDirt, "\u00A7lDERT SWARD");
+    	   LanguageRegistry.addName(swordIce, "\u00A7lIce Sword");
+    	   LanguageRegistry.addName(swordWeird, "\u00A7k\u00A7lWeird Sword");
+    	   LanguageRegistry.addName(swordNatura, "\u00A7lNatura Sword");
+    	   LanguageRegistry.addName(swordDim, "\u00A7lDimensional Blade");
+    	   LanguageRegistry.addName(swordEnder, "\u00A7lEnder Sword");
+    	   LanguageRegistry.addName(swordGlass, "\u00A7lGlass Sword");
+    	   LanguageRegistry.addName(swordCH, "\u00A79\u00A7lColin Harrison's Sword");
     	   
     	   //
     	   
@@ -376,6 +543,21 @@ public class UbahRPG
     	   LanguageRegistry.addName(ingotUnicornite, "Unicornite Ingot");
     	   LanguageRegistry.addName(candy, "Piece of Candy");
     	   LanguageRegistry.addName(activator, "Portal Activator");
+    	   //
+    	   LanguageRegistry.addName(rodGlowing, "Enhanced Blaze Rod");
+    	   LanguageRegistry.addName(crystalGhost, "Ghost Crystal");
+    	   LanguageRegistry.addName(digiron, "Diagiron");
+    	   LanguageRegistry.addName(phoenixone, "Phoenixone");
+    	   LanguageRegistry.addName(krakenone, "Krakenone");
+    	   LanguageRegistry.addName(impone, "Impone");
+    	   LanguageRegistry.addName(electricite, "Electricite");
+    	   LanguageRegistry.addName(ingotLegend, "Legend Ingot");
+    	   LanguageRegistry.addName(crystalElectric, "Electric Crystal");
+    	   LanguageRegistry.addName(crystalRotten, "Rotten Crystal");
+    	   LanguageRegistry.addName(shardWeird, "Weird Fragment");
+    	   LanguageRegistry.addName(ingotNatura, "Natura Ingot");
+    	   LanguageRegistry.addName(crystalDim, "Dimensia Crystal");
+    	   LanguageRegistry.addName(soulmite, "Soul-Infused Ultimite Ingot");
     	   
     	   //
     	   
@@ -383,12 +565,13 @@ public class UbahRPG
     	   LanguageRegistry.addName(oreUltimite, "Ultimite Ore");
     	   LanguageRegistry.addName(oreUnicornite, "Unicornite Ore");
     	   LanguageRegistry.addName(candyCane, "Candy Cane Block");
+    	   LanguageRegistry.addName(oreLegend, "Legend Ore");
+    	   LanguageRegistry.addName(oreNatura, "Natura Ore");
     	   
     	   //
     	   
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabGeneral", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- General");
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabWeaponry", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Weapons");
-    	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabTools", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Tools");
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.ubgms_rpg_tabArmor", "\u00A76\u00A7lUbah\u00A7a\u00A7lRPG \u00A7r- Armor");
     	   
     	   //
@@ -447,6 +630,8 @@ public class UbahRPG
     	   
     	   MinecraftForge.setBlockHarvestLevel(oreUltimite, "pickaxe", 3);
     	   MinecraftForge.setBlockHarvestLevel(oreUnicornite, "pickaxe", 3);
+    	   MinecraftForge.setBlockHarvestLevel(oreLegend, "pickaxe", 3);
+    	   MinecraftForge.setBlockHarvestLevel(oreNatura, "pickaxe", 3);
     	   
     	   //
     	   
@@ -456,6 +641,8 @@ public class UbahRPG
     	   GameRegistry.registerBlock(candyCane, "candyCane");
     	   GameRegistry.registerBlock(activatorFire, "activatorFire");
     	   GameRegistry.registerBlock(portalOceania, "portalOceania");
+    	   GameRegistry.registerBlock(oreLegend, "oreLegend");
+    	   GameRegistry.registerBlock(oreNatura, "oreNatura");
     	   
     	   //
     	   
@@ -466,6 +653,13 @@ public class UbahRPG
     			   GameRegistry.addBiome(oceaniaBiome);
     		   }
     	   }
+    	   
+    	   //
+    	   
+    	   FurnaceRecipes.smelting().addSmelting(ingotLegend.itemID, 0, new ItemStack(electricite, 3), 0.1F);
+    	   FurnaceRecipes.smelting().addSmelting(oreLegend.blockID, 0, new ItemStack(ingotLegend), 0.1F);
+    	   FurnaceRecipes.smelting().addSmelting(oreNatura.blockID, 0, new ItemStack(ingotNatura), 0.1F);
+    	   FurnaceRecipes.smelting().addSmelting(swordExcalibur.itemID, 0, new ItemStack(swordDirt), 0.1F);
     	   
     	   //
     	   
@@ -484,13 +678,87 @@ public class UbahRPG
     	   GameRegistry.addShapelessRecipe(new ItemStack(phoenixSoul, 2), new Object[]{
                new ItemStack(ash)
         });
-    	   
+    	   //
+    	   GameRegistry.addShapelessRecipe(new ItemStack(digiron), new Object[]{
+               new ItemStack(Item.diamond), new ItemStack(Item.ingotIron), new ItemStack(Item.ingotGold)
+        });
+    	   //
+    	   GameRegistry.addShapelessRecipe(new ItemStack(shardWeird, 3), new Object[]{
+               new ItemStack(shardPeppermint), new ItemStack(shardGhost), new ItemStack(shardDarkness)
+        });
+    	   GameRegistry.addShapelessRecipe(new ItemStack(soulmite), new Object[]{
+               new ItemStack(ingotUltimite), new ItemStack(phoenixSoul), new ItemStack(krakenSoul), new ItemStack(impSoul)
+        });
     	   //
     	   GameRegistry.addRecipe(new ItemStack(crystalCandycane), new Object[]{
                "PPP",
                "PSP",
                "PPP",
                'P', shardPeppermint, 'S', Item.sugar
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(rodGlowing), new Object[]{
+               "GGG",
+               "GBG",
+               "GGG",
+               'G', Item.glowstone, 'B', Item.blazeRod
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(crystalGhost), new Object[]{
+               "GGG",
+               "GGG",
+               "GGG",
+               'G', shardGhost
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(phoenixone), new Object[]{
+               "DDD",
+               "GPG",
+               "DDD",
+               'D', Item.diamond, 'G', Item.ingotGold, 'P', phoenixSoul 
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(krakenone), new Object[]{
+               "DDD",
+               "GPG",
+               "DDD",
+               'D', Item.diamond, 'G', Item.ingotGold, 'P', krakenSoul 
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(impone), new Object[]{
+               "DDD",
+               "GPG",
+               "DDD",
+               'D', Item.diamond, 'G', Item.ingotGold, 'P', impSoul 
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(crystalElectric), new Object[]{
+               "EEE",
+               "EEE",
+               "EEE",
+               'E', electricite
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(crystalRotten), new Object[]{
+               "RRR",
+               "RDR",
+               "RRR",
+               'R', Item.rottenFlesh, 'D', Item.diamond
+               
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(crystalDim), new Object[]{
+               "UNU",
+               "LUL",
+               "UPU",
+               'U', ingotUltimite, 'N', ingotNatura, 'L', ingotLegend, 'P', ingotUnicornite
                
         });
     	   //
@@ -518,6 +786,13 @@ public class UbahRPG
                "O O",
                "O O",
                'O', orcSkin
+        });
+    	   //
+    	   GameRegistry.addRecipe(new ItemStack(activator), new Object[]{
+               "BIF",
+               "ILI",
+               "IUI",
+               'I', Item.ingotIron, 'B', Block.stoneButton, 'F', Item.flintAndSteel, 'U', ingotUltimite, 'L', new ItemStack(Item.dyePowder, 1, 4)
         });
     	   //
     	   GameRegistry.addRecipe(new ItemStack(camoHelmet), new Object[]{
@@ -593,17 +868,237 @@ public class UbahRPG
                'R', Item.blazeRod, 'C', Item.magmaCream, 'P', Item.blazePowder
         });
     	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordAxeUnicorn), new Object[]{
+               "UUU",
+               "UUS",
+               "  S",
+               'U', ingotUnicornite, 'S', Item.stick
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordAxeGhostly), new Object[]{
+               "UUU",
+               "UUS",
+               "  S",
+               'U', shardGhost, 'S', Item.stick
+        });
+    	   //NEW SWORDS RECIPES
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordSpearMultisoul), new Object[]{
+               " IK",
+               " SP",
+               "S  ",
+               'S', Item.stick, 'P', phoenixSoul, 'K', krakenSoul, 'I', impSoul
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordScytheCandycane), new Object[]{
+               "CC ",
+               "S C",
+               "S  ",
+               'S', Item.stick, 'C', crystalCandycane
+        });
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordScytheSatyr), new Object[]{
+               "CC ",
+               "S C",
+               "S  ",
+               'S', Item.stick, 'C', crystalSatyr
+        });
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordScytheNether), new Object[]{
+               "CC ",
+               "S C",
+               "S  ",
+               'S', Item.stick, 'C', crystalNether
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordSickeningSickle), new Object[]{
+               " DB",
+               " S ",
+               " S ",
+               'S', Item.stick, 'D', Item.diamond, 'B', basiliskFang
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordDaggerUnicorn), new Object[]{
+               "H",
+               "R",
+               "S",
+               'H', unicornHorn, 'R', centaurRing, 'S', Item.stick
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordExcalibur), new Object[]{
+               "DPD",
+               "DKD",
+               "SIS",
+               'S', Item.stick, 'D', Block.blockDiamond, 'P', swordPhoenixone, 'K', swordKrakenone, 'I', swordImpone
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordCH), new Object[]{
+               "U",
+               "U",
+               "S",
+               'S', Item.stick, 'U', ingotUltimite
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordGhost), new Object[]{
+               "C",
+               "C",
+               "S",
+               'S', Item.stick, 'C', crystalGhost
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordOranian), new Object[]{
+               "C",
+               "C",
+               "S",
+               'S', Item.stick, 'C', digiron
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordUnicornPitchfork), new Object[]{
+               "H H",
+               "DUD",
+               " S ",
+               'S', Item.stick, 'H', unicornHorn, 'D', Item.diamond, 'U', ingotUnicornite
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordDaggerUltimite), new Object[]{
+               "C",
+               "S",
+               'S', Item.blazeRod, 'C', ingotUltimite
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordDaggerBasilisk), new Object[]{
+               "C",
+               "S",
+               'S', Item.stick, 'C', basiliskFang
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordGlownFury), new Object[]{
+               "GUG",
+               "GUG",
+               " B ",
+               'B', Item.blazeRod, 'U', ingotUltimite, 'G', rodGlowing
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordFlailDiamond), new Object[]{
+               "D  ",
+               " I ",
+               "  S",
+               'S', Item.stick, 'I', Item.ingotIron, 'D', Item.diamond
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordFlailIron), new Object[]{
+               "I  ",
+               " I ",
+               "  S",
+               'S', Item.stick, 'I', Item.ingotIron
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordPhoenixone), new Object[]{
+               "O",
+               "U",
+               "G",
+               'O', phoenixone, 'U', soulmite, 'G', rodGlowing
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordKrakenone), new Object[]{
+               "O",
+               "U",
+               "G",
+               'O', krakenone, 'U', soulmite, 'G', rodGlowing
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordImpone), new Object[]{
+               "O",
+               "U",
+               "G",
+               'O', impone, 'U', soulmite, 'G', rodGlowing
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordLightning), new Object[]{
+               "E",
+               "E",
+               "G",
+               'E', crystalElectric, 'G', rodGlowing
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordLegend), new Object[]{
+               "LLL",
+               "LLL",
+               " S ",
+               'S', Item.stick, 'L', ingotLegend
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordShining), new Object[]{
+               "DCD",
+               "ESE",
+               " S ",
+               'S', Item.stick, 'D', shardDarkness, 'C', crystalElectric, 'E', electricite
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordZombie), new Object[]{
+               "R",
+               "R",
+               "S",
+               'S', Item.stick, 'R', crystalRotten
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordDirt), new Object[]{
+               "R",
+               "R",
+               "S",
+               'S', Item.stick, 'R', Block.dirt
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordIce), new Object[]{
+               "R",
+               "R",
+               "S",
+               'S', Item.stick, 'R', Block.ice
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordWeird), new Object[]{
+               "WWW",
+               "WWW",
+               " S ",
+               'S', Item.stick, 'W', shardWeird
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordNatura), new Object[]{
+               "NDN",
+               "NDN",
+               " S ",
+               'S', Item.stick, 'N', ingotNatura, 'D', Item.diamond
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordDim), new Object[]{
+               "R",
+               "R",
+               "S",
+               'S', Item.stick, 'R', crystalDim
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordEnder), new Object[]{
+               "PRP",
+               "PRP",
+               "DSD",
+               'S', Item.stick, 'R', Item.eyeOfEnder, 'P', Item.enderPearl, 'D', Item.diamond
+        });
+    	   //
+    	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordGlass), new Object[]{
+               "R",
+               "R",
+               "S",
+               'S', Item.stick, 'R', Block.thinGlass
+        });
+    	   //END OF NEW SWORDS RECIPES
     	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordUltimite), new Object[]{
                "UUU",
                "UUU",
                "SSS",
-               'S', Item.stick, 'U', ingotUltimite
+               'S', Item.stick, 'U', soulmite
         });
     	   //
     	   ForgeCraftingManager.getInstance().addRecipe(new ItemStack(swordCandycane), new Object[]{
-               " C ",
-               " C ",
-               " R ",
+               "C",
+               "C",
+               "R",
                'R', Item.reed, 'C', crystalCandycane
                
         });

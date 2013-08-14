@@ -118,7 +118,8 @@ for (int k1 = 0; k1 < b1; ++k1)
          }
          else
          {
-                 par3ArrayOfByte[j2 += short1] = 0;
+        	 //HERE IS THE AIR!!!
+                 par3ArrayOfByte[j2 += short1] = (byte)Block.waterStill.blockID;;
          }
          }
          d10 += d12;

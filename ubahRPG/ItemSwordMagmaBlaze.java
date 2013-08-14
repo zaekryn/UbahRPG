@@ -35,7 +35,7 @@ public class ItemSwordMagmaBlaze extends ItemSwordBasic
     public boolean hitEntity(ItemStack itemstack, EntityLivingBase entityliving, EntityLivingBase entityliving1)
     {
       itemstack.damageItem(1, entityliving1);
-      entityliving.setFire(10);
+      entityliving.setFire(1);
       return true;
     }
 }

@@ -18,6 +18,7 @@ public class UbahWorldGeneration implements IWorldGenerator
                     case -1: generateNether(world, random, chunkX * 16, chunkZ * 16);
                     case 0: generateSurface(world, random, chunkX * 16, chunkZ * 16);
                     case 1: generateEnd(world, random, chunkX * 16, chunkZ * 16);
+                    case 64: generateOceania(world, random, chunkX * 16, chunkZ * 16);
              }
        }
       
@@ -28,15 +29,18 @@ public class UbahWorldGeneration implements IWorldGenerator
 
        private void generateSurface(World world, Random random, int x, int z)
        {
+    	   
              this.addOreSpawn(UbahRPG.oreUltimite, world, random, x, z, 16, 16, 3 + random.nextInt(3), 5, 5, 30);
              
-             
-             
-             
-             
-             
-             
-             
+       }
+       
+       private void generateOceania(World world, Random random, int x, int z)
+       {
+    	   
+    	   int Xcoord = x + random.nextInt(16);
+    	   int Ycoord = 10 + random.nextInt(40);
+    	   int Zcoord = z + random.nextInt(16);
+    	   (new WorldGenOceania(UbahRPG.oreLegend.blockID, 2)).generate(world, random, Xcoord, Ycoord, Zcoord);
              
        }
 
@@ -64,4 +68,5 @@ public class UbahWorldGeneration implements IWorldGenerator
                     (new WorldGenMinable(block.blockID, maxVeinSize)).generate(world, random, posX, posY, posZ);
              }
        }
+       
 }
