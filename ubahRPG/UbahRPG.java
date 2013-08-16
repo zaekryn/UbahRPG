@@ -323,6 +323,7 @@ public class UbahRPG
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Orc.name", "Orc");
     	   LanguageRegistry.instance().addStringLocalization("entity.ubgms_rpg.Unicorn.name", "Unicorn");
     	   
+    	   
     	   orcskinHelmet = new ArmorOrcSkin(ID.orcskinHelmet_actual, orcskin, 3, 0).setUnlocalizedName("orcskinHelmet");
     	   orcskinChestplate = new ArmorOrcSkin(ID.orcskinChestplate_actual, orcskin, 3, 1).setUnlocalizedName("orcskinChestplate");
     	   orcskinLeggings = new ArmorOrcSkin(ID.orcskinLeggings_actual, orcskin, 3, 2).setUnlocalizedName("orcskinLeggings");
